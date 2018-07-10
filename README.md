@@ -70,7 +70,7 @@ Task tracking and breaking out tasks to individual features was really important
 
 To that end, from the outset we implemented a main Scrum-style Trello board, split into a number of sections:
 
-<a href="assets/images/scrum.png" target="_blank"><img src="assets/images/scrum.png" width="500"></a>
+<a href="assets/images/scrum.png" target="_blank"><img src="assets/images/scrum.png" width="800"></a>
 
 Link To: [Main Scrum Trello Board](https://trello.com/b/DFlgggpu)
 
@@ -107,11 +107,11 @@ The board is designed to be self-documenting, and make sense, so as not to be to
 
 From the outset of this project, we decided to take a lot from the Agile methodology. Given that each of us has our own unique strengths, we have embraced the idea that we will be far more powerful as a team, and the Agile (Specifically, Scrum) practices offer a lot in the way of organization. 
 
-<a href="assets/images/ideation.jpg" target="_blank"><img src="assets/images/ideation.jpg" width="500"></a>
+<a href="assets/images/ideation.jpg" target="_blank"><img src="assets/images/ideation.jpg" width="800"></a>
 
 We kicked it off with a big Ideation whiteboard session. This was great in laying out what we needed and wanted to achieve given the client’s needs. From this, we started up our Trello board “Ideas” column, and the flow progressed from there.
 
-<a href="assets/images/ideation2.jpg" target="_blank"><img src="assets/images/ideation2.jpg" width="250"></a> <a href="assets/images/postit.jpg" target="_blank"><img src="assets/images/postit.jpg" width="250"></a>
+<a href="assets/images/ideation2.jpg" target="_blank"><img src="assets/images/ideation2.jpg" width="400"></a> <a href="assets/images/postit.jpg" target="_blank"><img src="assets/images/postit.jpg" width="400"></a>
 
 (We also had fun. Winter got *really* into his post-it notes :D)
 
@@ -121,7 +121,7 @@ Adding in a “Blocked” step to the scrum board was another big part of this. 
 
 As far as Timeline planning goes, we have begun to track our progress using Maxi’s previously made Timeline Tracker app! 
 
-<a href="assets/images/timeline.png" target="_blank"><img src="assets/images/timeline.png" width="500"></a>
+<a href="assets/images/timeline.png" target="_blank"><img src="assets/images/timeline.png" width="800"></a>
 
 This was actually really useful! It was really impressive and empowering to see how we could actually use a tool that was previously made by one of our own, to further our project needs. Thanks, Maxi! 
 
