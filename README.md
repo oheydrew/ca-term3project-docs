@@ -15,12 +15,20 @@ We will develop an online app that will enable Ed’s employees to easily enter 
 This app will streamline the process of calculating wages, reduce the number of errors and remove the need to manually update an excel spreadsheet.
 
 # 5. Identify and describe the software (including databases) to be used in your App.
-NodeJS Backend - Custom Express Stuff (Mongoose, etc)
-MongoDB Database
-React on Frontend
-Framework?? - create react app? 
 
 > Describe the software ie React, Express, MongoDB, etc with short descriptions for each
+
+### Frontend:
+We will develop the frontend in JavaScript, using the React library. We will also use react-router to enable client-side routing and Webpack as our asset budnler.
+
+### Backend:
+We will develop the backend in JavaScript, using the express library to speed up the process. 
+
+### Database: 
+We will use MongoDB for our database. The plan is to install our database on the server, as opposed to using a third-party database manager like Atlas or mLab.  We'll use the mongoose library to interact with our database.
+
+### Host:
+We will use DigitalOcean to host our App.
 
 # 6. Identify and describe the network setup you will use in your development.
 > It's a web app- Talk about Laptop for Employer, Mobile for Employee etc
@@ -29,13 +37,38 @@ Framework?? - create react app?
 
 > Web App - DigitalOcean? Production plans? Production Environment plans?
 
+We will host our App on Digital Ocean. We will buy the cheapest plan, which gives us access to a virtual computer with 1GB of memory, 1vCPU, 25GB of SSD storage, and allow up to 1TB of transfers per month. We are planning to install our database on the server, so will not need to use third-party services like Atlas or mLab.
+
 # 8. Describe the architecture of your App.
 
 > Explain out the architecture - maybe put up original whiteboard pic and talk to the "3 app" model etc
 
+### Frontend:
+
+We will create three seperate frontend apps. One for guest users, one for employee users, and one for the employer users. Our server will serve these apps to the user, depending on the authorization details they provide. Each app will utilise react-router to enable client-side routing within each app. These frontend apps will comminucate with our backend server via api requests.
+
+### Backend:
+
+We will run server.js on our DigitalOcean virtual computer. Our server will listen for requests and handle them according to the endpoints that the requests go to. Our server will serve all the static files to the user, depending on the authorization details they provide.
+
+### Database:
+
+We are planning to install a MongoDB database on our DigitalOcean server. Our backend will query the database and create/update/delete new documents as needed.
+
 # 9. Explain the different high-level components (abstractions) in your App.
 
 > Talk about Employee vs Employer sections Talk about 5 main pages: Employee Dash, Employer Approvals, Employer Reports, Employer Business Settings, Employee Management
+
+Our app is made up of five main components:
+1. Guest App. Our server will serve the guest app for users who have not provided any authorization details. This app will have three main react components: AppRouter (with Navigation), SplashPage (for app information and to login) and ContactPage (for contact details).
+
+2. Employee App. Our server will serve the employee app for users who provide employee authorization details. This app will have three main react components: AppRouter (with Navigation), DashboardPage (to view and submit timesheets) and SettingsPage (to update accoutn details).
+
+3. Employer App. Our server will serve the employer app for users who provide employer authorization details. This app will have five main react components: AppRouter (with Navigation), ReportPage (to generate a report of timesheets), ApprovePage (to approve submitted timesheets), ManageEmployeesPage (to manage employees), SettingsPage (to manage account settings).
+
+4. Express Backend. Our server will listen for requests, handle those requests, interact with our database, serve static assets, and serve data in JSON format. Our server will also do all the authentication and authorization work and we hope to implement a mailer.
+
+5. MongoDB Database. Our database will act as the store for all the information we want to save. Thsi includes, user data, shift data and business data.
 
 # 10. Detail any third party services that your App will use.
 
