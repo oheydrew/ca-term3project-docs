@@ -16,8 +16,6 @@ This app will streamline the process of calculating wages, reduce the number of 
 
 # 5. Identify and describe the software (including databases) to be used in your App.
 
-> Describe the software ie React, Express, MongoDB, etc with short descriptions for each
-
 ### Frontend:
 We will develop the frontend in JavaScript, using the React library. We will also use react-router to enable client-side routing and Webpack as our asset budnler.
 
@@ -31,21 +29,18 @@ We will use MongoDB for our database. The plan is to install our database on the
 We will use DigitalOcean to host our App.
 
 # 6. Identify and describe the network setup you will use in your development.
-> It's a web app- Talk about Laptop for Employer, Mobile for Employee etc
+
+Our app will live in a DiginalOcean virtual computer. Users will enter the domain name, chicken-in.com, into their browser and the server will handle their requests, serve them static assets and serve them data in JSON format. Users will interact with our app entirely on the browser.
 
 # 7. Identify and describe the infrastructure (i.e. hardware) that your App will run on.
-
-> Web App - DigitalOcean? Production plans? Production Environment plans?
 
 We will host our App on Digital Ocean. We will buy the cheapest plan, which gives us access to a virtual computer with 1GB of memory, 1vCPU, 25GB of SSD storage, and allow up to 1TB of transfers per month. We are planning to install our database on the server, so will not need to use third-party services like Atlas or mLab.
 
 # 8. Describe the architecture of your App.
 
-> Explain out the architecture - maybe put up original whiteboard pic and talk to the "3 app" model etc
-
 ### Frontend:
 
-We will create three seperate frontend apps. One for guest users, one for employee users, and one for the employer users. Our server will serve these apps to the user, depending on the authorization details they provide. Each app will utilise react-router to enable client-side routing within each app. These frontend apps will comminucate with our backend server via api requests.
+We will create three seperate frontend apps. One for guest users, one for employee users, and one for the manager users. Our server will serve these apps to the user, depending on the authorization details they provide. Each app will utilise react-router to enable client-side routing within each app. These frontend apps will comminucate with our backend server via api requests.
 
 ### Backend:
 
@@ -57,22 +52,24 @@ We are planning to install a MongoDB database on our DigitalOcean server. Our ba
 
 # 9. Explain the different high-level components (abstractions) in your App.
 
-> Talk about Employee vs Employer sections Talk about 5 main pages: Employee Dash, Employer Approvals, Employer Reports, Employer Business Settings, Employee Management
-
 Our app is made up of five main components:
-1. Guest App. Our server will serve the guest app for users who have not provided any authorization details. This app will have three main react components: AppRouter (with Navigation), SplashPage (for app information and to login) and ContactPage (for contact details).
+1. **Guest App.** Our server will serve the guest app for users who have not provided any authorization details. This app will have three main react components: AppRouter (with Navigation), SplashPage (for app information and to login) and ContactPage (for contact details).
 
-2. Employee App. Our server will serve the employee app for users who provide employee authorization details. This app will have three main react components: AppRouter (with Navigation), DashboardPage (to view and submit timesheets) and SettingsPage (to update accoutn details).
+2. **Employee App.** Our server will serve the employee app for users who provide employee authorization details. This app will have three main react components: AppRouter (with Navigation), DashboardPage (to view and submit timesheets) and SettingsPage (to update accoutn details).
 
-3. Employer App. Our server will serve the employer app for users who provide employer authorization details. This app will have five main react components: AppRouter (with Navigation), ReportPage (to generate a report of timesheets), ApprovePage (to approve submitted timesheets), ManageEmployeesPage (to manage employees), SettingsPage (to manage account settings).
+3. Manager App. Our server will serve the manager app for users who provide manager authorization details. This app will have five main react components: AppRouter (with Navigation), ReportPage (to generate a report of timesheets), ApprovePage (to approve submitted timesheets), ManageEmployeesPage (to manage employees), SettingsPage (to manage account settings).
 
-4. Express Backend. Our server will listen for requests, handle those requests, interact with our database, serve static assets, and serve data in JSON format. Our server will also do all the authentication and authorization work and we hope to implement a mailer.
+4. **Express Backend.** Our server will listen for requests, handle those requests, interact with our database, serve static assets, and serve data in JSON format. Our server will also do all the authentication and authorization work and we hope to implement a mailer.
 
-5. MongoDB Database. Our database will act as the store for all the information we want to save. Thsi includes, user data, shift data and business data.
+5. **MongoDB Database.** Our database will act as the store for all the information we want to save. Thsi includes, user data, shift data and business data.
 
 # 10. Detail any third party services that your App will use.
 
-> Mongo if atlas etc? Mail: Nodemailer? Sendgrid/Mailgun? 
+- **DigitalOcean** for hosting
+- **MongoDB** for the database
+- **Figma** for developing the wireframes
+- **Trello** for general project management
+- **Git** and **Github** for version control
 
 # 11. Identify the database to be used in your app and provide a justification for your choice.
 We will use <b>MongoDB</b> for our database. The benefits are:
@@ -263,53 +260,62 @@ For individual features, Our plan is to use separate `feature` branches cloned o
 
 #### Step 3: Create your new feature branch - This is important! Otherwise we’ll be conflicting up the wazoo on develop :P And try to name your branch smart! Use the name on the Trello card you’re working on, if possible.
 
-git checkout -b login-form develop
-(note the ‘develop’ on the end, makes sure it creates the branch off of ‘develop’, not ‘master’)
+> `git checkout -b login-form develop`
+
+> (note the ‘develop’ on the end, makes sure it creates the branch off of ‘develop’, not ‘master’)
 
 #### Step 4: Make your changes! Do your code!
 
-	:tada_emoji:
+> <-- 🎉  -->
 
 #### Step 5: Add and commit your changes to your branch
 
-	git add . or git add -A 
-	git commit -m “A descriptive and useful commit message please!”
+> `git add .`
 
-#### Step 6: Change back to ‘develop’
+> `git commit -m “A descriptive and useful commit message please!”`
 
-git checkout develop
+#### Step 6: Push your branch to github (for history's sake)
 
-#### Step 7: Do a git pull (on ‘develop’ branch) - this is to make sure that if someone else has gone ahead and pushed since you last worked on it, you’re all up to speed. ALWAYS GIT PULL BEFORE PUSH! :D
+> `git push origin login-form`
 
-git pull origin develop 
-(or just git pull if you’ve already set your upstream)
+#### Step 7: Change back to ‘develop’
 
-#### Step 8: Merge your branch back in (Again: Don’t forget to pull, first!)
+> `git checkout develop`
 
-git merge --no-ff login-form develop
+#### Step 8: Do a git pull (on ‘develop’ branch) - this is to make sure that if someone else has gone ahead and pushed since you last worked on it, you’re all up to speed. *ALWAYS GIT PULL BEFORE PUSH! :D*
 
-#### Step 9: Push your change to develop
+> `git pull -u origin develop`
 
-git push origin develop
+> (or just `git pull` if you’ve already set your upstream)
+
+#### Step 9: Merge your branch back in (Again: Don’t forget to pull, first!)
+
+> `git merge --no-ff login-form develop`
+
+#### Step 10: Push your change to develop
+
+> `git push origin develop`
 
 # 19. Provide an overview and description of your Testing process.
 
-> Jest Unit Testing? 
+We plan to implement two types of tests: 
 
-> Basic Integration Tests
+- **Unit Tests**:  To test functions and components
+- **Integration Tests**: To 'black box' test functionality of our code as a whole
+
+We plan to integrate Jest for our main Test suite, as well as Enzyme to test React components. Tests for React components will live inside a /test/ subfolder inside the component folder itself.
+
+For known and pre-designed code components, we plan to implement some level of T.D.D, writing tests before code, to garauntee that the code functions as planned. In cases where more inventive code solutions are required, we will implement tests for these functions retroactively.
+
+Integration Testing will mostly happen on the backend and will be used to test database and model data, as well as larger function chains. 
+
+We have extended goals to integrate Continuous Integration using TravisCI - This would enable us to be able to automatically run tests, before deploying to our `master` branch. This may or may not get implemented, depending on how complete the project gets.
 
 # 20. Discuss and analyse requirements related to information system security.
-
-> Lol hax - JWT’s, Cookies, No Local Storage, Hash Passwords, Upload all passwords in plain text to rainbow table
+Managers will need to be confident that only they can access their account, manage employees and approve employee timesheets. Employees will need to be confident that only they can submit their own time sheets. We will facilitate this by implementing server-side authorization and authenticantion.
 
 # 21. Discuss methods you will use to protect information and data.
-
-> Lol hax - JWT’s, Cookies, No Local Storage, Hash Passwords, Upload all passwords in plain text to rainbow table
-
-> Secure databases
+We will implement a login endpoint that checks the incoming login details against details stored in the database. The server will then create a JWT and provide it to that user via a private cookie.  Additionally, we will protect all our api endpoints with middleware that will check requests for a JWT. If a valid JWT is not provided, the server will return a status of 401. If a valid JWT is provided, the server will handle the request appropriately. We will also implement a logout endpoint that will remove the JWT from the user's cookie. Additionally, we will avoid storing authorization data in local storage, and we will also hash incoming passwords before storing them in the database.
 
 # 22. Research what your legal obligations are in relation to handling user data.
-
-> Somebody to do some cursory research?
-
-
+Under Australian Privacy laws, we are required to safeguard any user information that we collect and store. We have the responsibility to protect users' personal information from theft, misuse, interference, loss, unauthorized access, modification and disclosure. We must also take reasonable steps to destroy or de-identify personal information when it is no longer needed. Personal information can include name, signature, address, email, telephone number, date of birth, medical records, bank account details, etc.
