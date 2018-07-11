@@ -15,35 +15,65 @@ We will develop an online app that will enable Ed’s employees to easily enter 
 This app will streamline the process of calculating wages, reduce the number of errors and remove the need to manually update an excel spreadsheet.
 
 # 5. Identify and describe the software (including databases) to be used in your App.
-NodeJS Backend - Custom Express Stuff (Mongoose, etc)
-MongoDB Database
-React on Frontend
-Framework?? - create react app? 
 
-> Describe the software ie React, Express, MongoDB, etc with short descriptions for each
+### Frontend:
+We will develop the frontend in JavaScript, using the React library. We will also use react-router to enable client-side routing and Webpack as our asset budnler.
+
+### Backend:
+We will develop the backend in JavaScript, using the express library to speed up the process. 
+
+### Database: 
+We will use MongoDB for our database. The plan is to install our database on the server, as opposed to using a third-party database manager like Atlas or mLab.  We'll use the mongoose library to interact with our database.
+
+### Host:
+We will use DigitalOcean to host our App.
 
 # 6. Identify and describe the network setup you will use in your development.
-> It's a web app- Talk about Laptop for Employer, Mobile for Employee etc
+
+Our app will live in a DiginalOcean virtual computer. Users will enter the domain name, chicken-in.com, into their browser and the server will handle their requests, serve them static assets and serve them data in JSON format. Users will interact with our app entirely on the browser.
 
 # 7. Identify and describe the infrastructure (i.e. hardware) that your App will run on.
 
-> Web App - DigitalOcean? Production plans? Production Environment plans?
+We will host our App on Digital Ocean. We will buy the cheapest plan, which gives us access to a virtual computer with 1GB of memory, 1vCPU, 25GB of SSD storage, and allow up to 1TB of transfers per month. We are planning to install our database on the server, so will not need to use third-party services like Atlas or mLab.
 
 # 8. Describe the architecture of your App.
 
-> Explain out the architecture - maybe put up original whiteboard pic and talk to the "3 app" model etc
+### Frontend:
+
+We will create three seperate frontend apps. One for guest users, one for employee users, and one for the employer users. Our server will serve these apps to the user, depending on the authorization details they provide. Each app will utilise react-router to enable client-side routing within each app. These frontend apps will comminucate with our backend server via api requests.
+
+### Backend:
+
+We will run server.js on our DigitalOcean virtual computer. Our server will listen for requests and handle them according to the endpoints that the requests go to. Our server will serve all the static files to the user, depending on the authorization details they provide.
+
+### Database:
+
+We are planning to install a MongoDB database on our DigitalOcean server. Our backend will query the database and create/update/delete new documents as needed.
 
 # 9. Explain the different high-level components (abstractions) in your App.
 
-> Talk about Employee vs Employer sections Talk about 5 main pages: Employee Dash, Employer Approvals, Employer Reports, Employer Business Settings, Employee Management
+Our app is made up of five main components:
+1. Guest App. Our server will serve the guest app for users who have not provided any authorization details. This app will have three main react components: AppRouter (with Navigation), SplashPage (for app information and to login) and ContactPage (for contact details).
+
+2. Employee App. Our server will serve the employee app for users who provide employee authorization details. This app will have three main react components: AppRouter (with Navigation), DashboardPage (to view and submit timesheets) and SettingsPage (to update accoutn details).
+
+3. Employer App. Our server will serve the employer app for users who provide employer authorization details. This app will have five main react components: AppRouter (with Navigation), ReportPage (to generate a report of timesheets), ApprovePage (to approve submitted timesheets), ManageEmployeesPage (to manage employees), SettingsPage (to manage account settings).
+
+4. Express Backend. Our server will listen for requests, handle those requests, interact with our database, serve static assets, and serve data in JSON format. Our server will also do all the authentication and authorization work and we hope to implement a mailer.
+
+5. MongoDB Database. Our database will act as the store for all the information we want to save. Thsi includes, user data, shift data and business data.
 
 # 10. Detail any third party services that your App will use.
 
-> Mongo if atlas etc? Mail: Nodemailer? Sendgrid/Mailgun? 
+- DigitalOcean for hosting
+- MongoDB for the database
+- Figma for developing the wireframes
+- Trello for general project management
+- Git and Github for version control
 
 # 11. Identify the database to be used in your app and provide a justification for your choice.
-
-> MongoDB
+helps you scaling
+MongoDB
 
 # 12. Discuss the database relations to be implemented.
 
@@ -51,19 +81,92 @@ Framework?? - create react app?
 
 # 13. Provide your database schema design.
 
-> Schemas
+```javascript
+const employerSchema = 
+{
+  id: String,
+  email: String,
+  password: String
+}
+
+const employeeSchema = {
+  id: String,
+  name: String,
+  email: String,
+  password: String, // randomly generate a password upon creation and send emial to employee
+  location: [ String ],
+  standardRate: Number, // cents
+  overtimeOneRate: Number, // cents
+  overtimeTwoRate: Number, // cents
+  business: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Business'
+  }
+}
+
+const shiftSchema = 
+{
+  id: String,
+  employee: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Employee'
+  },
+  date: Number,
+  location: String,
+  startTime: Number,
+  endTime: Number,
+  standardMinutes: Number,
+  overtimeOneMinutes: Number,
+  overtimeTwoMinutes: Number,
+  totalPay: Number, // cents
+  status: String
+}
+
+const businessSchema = {
+  name: String,
+  address: String,
+  locations: [String],
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Employer'
+  }
+}
+```
 
 # 14. Provide User stories for your App.
+### User Profiles
+<img src="assets/images/user_stories/User_Profiles.png" width="250" align="top">
 
-> Provide User Stories Image
+### User Stories(Employee)
+<img src="assets/images/user_stories/Employee_User_Story_1.png" width="250" align="top">
+<img src="assets/images/user_stories/Employee_User_Story_2.png" width="250" align="top">
+<img src="assets/images/user_stories/Employee_User_Story_3.png" width="250" align="top">
 
-> Provide Trello link
+### User Stories(Employer)
+<img src="assets/images/user_stories/Employer_User_Story_1.png" width="250" align="top">
+<img src="assets/images/user_stories/Employer_User_Story_2.png" width="250" align="top">
+<img src="assets/images/user_stories/Employer_User_Story_3.png" width="250" align="top">
+
+Link To: [User Stories Trello Board](https://trello.com/b/1kl5tgnk)
 
 # 15. Provide Wireframes for your App.
+## Initial Wireframes
 
-> Initial Wireframes
+### Guest Pages(LP)
+<img src="assets/images/wireframes/2018-07-11_Guest_Pages_wf.png" width="800" align="top">
 
-> Design Wireframes
+### Employee Pages
+<img src="assets/images/wireframes/2018-07-10_Employee_Pages_wf.png" width="800" align="top">
+
+### Employer Pages
+<img src="assets/images/wireframes/2018-07-10_Employer_Pages_wf_1.png" width="800" align="top">
+<img src="assets/images/wireframes/2018-07-10_Employer_Pages_wf_2.png" width="800" align="top">
+<img src="assets/images/wireframes/2018-07-10_Employer_Pages_wf_3.png" width="800" align="top">
+
+## Design Wireframes
+
+
+Link To: [Wireframe on Figma](https://www.figma.com/file/gQQXmtltA663KtTEjNjUGpPT/Wireframe)
 
 # 16. Describe the way Tasks are being allocated and tracked in your project.
 
