@@ -65,11 +65,11 @@ Our app is made up of five main components:
 
 # 10. Detail any third party services that your App will use.
 
-- DigitalOcean for hosting
-- MongoDB for the database
-- Figma for developing the wireframes
-- Trello for general project management
-- Git and Github for version control
+- **DigitalOcean** for hosting
+- **MongoDB** for the database
+- **Figma** for developing the wireframes
+- **Trello** for general project management
+- **Git** and **Github** for version control
 
 # 11. Identify the database to be used in your app and provide a justification for your choice.
 helps you scaling
