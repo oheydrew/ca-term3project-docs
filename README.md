@@ -39,7 +39,7 @@ Talk about 5 main pages: Employee Dash, Employer Approvals, Employer Reports, Em
 Mail: Nodemailer? Sendgrid/Mailgun? 
 
 # 11. Identify the database to be used in your app and provide a justification for your choice.
-
+helps you scaling
 MongoDB
 
 # 12. Discuss the database relations to be implemented.
@@ -117,10 +117,20 @@ const businessSchema = {
 Link To: [User Stories Trello Board](https://trello.com/b/1kl5tgnk)
 
 # 15. Provide Wireframes for your App.
+## Original Wireframes
 
-Half Tick! Design / Prettier Wireframes on the way
+### Guest Pages(LP)
+<img src="assets/images/wireframes/2018-07-11_Guest_Pages_wf.png" width="800" align="top">
 
+### Employee Pages
+<img src="assets/images/wireframes/2018-07-10_Employee_Pages_wf.png" width="800" align="top">
 
+### Employer Pages
+<img src="assets/images/wireframes/2018-07-10_Employer_Pages_wf_1.png" width="800" align="top">
+<img src="assets/images/wireframes/2018-07-10_Employer_Pages_wf_2.png" width="800" align="top">
+<img src="assets/images/wireframes/2018-07-10_Employer_Pages_wf_3.png" width="800" align="top">
+
+Link To: [Wireframe on Figma](https://www.figma.com/file/gQQXmtltA663KtTEjNjUGpPT/Wireframe)
 
 # 16. Describe the way Tasks are being allocated and tracked in your project.
 
