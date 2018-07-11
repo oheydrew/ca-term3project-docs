@@ -149,7 +149,7 @@ const businessSchema = {
 <img src="assets/images/user_stories/Employee_User_Story_2.png" width="250" align="top">
 <img src="assets/images/user_stories/Employee_User_Story_3.png" width="250" align="top">
 
-### User Stories(Employer)
+### User Stories(Manager)
 <img src="assets/images/user_stories/Employer_User_Story_1.png" width="250" align="top">
 <img src="assets/images/user_stories/Employer_User_Story_2.png" width="250" align="top">
 <img src="assets/images/user_stories/Employer_User_Story_3.png" width="250" align="top">
@@ -165,13 +165,13 @@ Link To: [User Stories Trello Board](https://trello.com/b/1kl5tgnk)
 ### Employee Pages
 <img src="assets/images/wireframes/2018-07-10_Employee_Pages_wf.png" width="800" align="top">
 
-### Employer Pages
+### Manager Pages
 <img src="assets/images/wireframes/2018-07-10_Employer_Pages_wf_1.png" width="800" align="top">
 <img src="assets/images/wireframes/2018-07-10_Employer_Pages_wf_2.png" width="800" align="top">
 <img src="assets/images/wireframes/2018-07-10_Employer_Pages_wf_3.png" width="800" align="top">
 
 ## Design Wireframes
-
+> TBC 
 
 Link To: [Wireframe on Figma](https://www.figma.com/file/gQQXmtltA663KtTEjNjUGpPT/Wireframe)
 
