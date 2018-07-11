@@ -16,8 +16,6 @@ This app will streamline the process of calculating wages, reduce the number of 
 
 # 5. Identify and describe the software (including databases) to be used in your App.
 
-> Describe the software ie React, Express, MongoDB, etc with short descriptions for each
-
 ### Frontend:
 We will develop the frontend in JavaScript, using the React library. We will also use react-router to enable client-side routing and Webpack as our asset budnler.
 
@@ -31,17 +29,14 @@ We will use MongoDB for our database. The plan is to install our database on the
 We will use DigitalOcean to host our App.
 
 # 6. Identify and describe the network setup you will use in your development.
-> It's a web app- Talk about Laptop for Employer, Mobile for Employee etc
+
+Our app will live in a DiginalOcean virtual computer. Users will enter the domain name, chicken-in.com, into their browser and the server will handle their requests, serve them static assets and serve them data in JSON format. Users will interact with our app entirely on the browser.
 
 # 7. Identify and describe the infrastructure (i.e. hardware) that your App will run on.
-
-> Web App - DigitalOcean? Production plans? Production Environment plans?
 
 We will host our App on Digital Ocean. We will buy the cheapest plan, which gives us access to a virtual computer with 1GB of memory, 1vCPU, 25GB of SSD storage, and allow up to 1TB of transfers per month. We are planning to install our database on the server, so will not need to use third-party services like Atlas or mLab.
 
 # 8. Describe the architecture of your App.
-
-> Explain out the architecture - maybe put up original whiteboard pic and talk to the "3 app" model etc
 
 ### Frontend:
 
@@ -57,8 +52,6 @@ We are planning to install a MongoDB database on our DigitalOcean server. Our ba
 
 # 9. Explain the different high-level components (abstractions) in your App.
 
-> Talk about Employee vs Employer sections Talk about 5 main pages: Employee Dash, Employer Approvals, Employer Reports, Employer Business Settings, Employee Management
-
 Our app is made up of five main components:
 1. Guest App. Our server will serve the guest app for users who have not provided any authorization details. This app will have three main react components: AppRouter (with Navigation), SplashPage (for app information and to login) and ContactPage (for contact details).
 
@@ -72,7 +65,11 @@ Our app is made up of five main components:
 
 # 10. Detail any third party services that your App will use.
 
-> Mongo if atlas etc? Mail: Nodemailer? Sendgrid/Mailgun? 
+- DigitalOcean for hosting
+- MongoDB for the database
+- Figma for developing the wireframes
+- Trello for general project management
+- Git and Github for version control
 
 # 11. Identify the database to be used in your app and provide a justification for your choice.
 helps you scaling
