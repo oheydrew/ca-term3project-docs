@@ -53,23 +53,23 @@ We are planning to install a MongoDB database on our DigitalOcean server. Our ba
 # 9. Explain the different high-level components (abstractions) in your App.
 
 Our app is made up of five main components:
-1. Guest App. Our server will serve the guest app for users who have not provided any authorization details. This app will have three main react components: AppRouter (with Navigation), SplashPage (for app information and to login) and ContactPage (for contact details).
+1. **Guest App.** Our server will serve the guest app for users who have not provided any authorization details. This app will have three main react components: AppRouter (with Navigation), SplashPage (for app information and to login) and ContactPage (for contact details).
 
-2. Employee App. Our server will serve the employee app for users who provide employee authorization details. This app will have three main react components: AppRouter (with Navigation), DashboardPage (to view and submit timesheets) and SettingsPage (to update accoutn details).
+2. **Employee App.** Our server will serve the employee app for users who provide employee authorization details. This app will have three main react components: AppRouter (with Navigation), DashboardPage (to view and submit timesheets) and SettingsPage (to update accoutn details).
 
 3. Manager App. Our server will serve the manager app for users who provide manager authorization details. This app will have five main react components: AppRouter (with Navigation), ReportPage (to generate a report of timesheets), ApprovePage (to approve submitted timesheets), ManageEmployeesPage (to manage employees), SettingsPage (to manage account settings).
 
-4. Express Backend. Our server will listen for requests, handle those requests, interact with our database, serve static assets, and serve data in JSON format. Our server will also do all the authentication and authorization work and we hope to implement a mailer.
+4. **Express Backend.** Our server will listen for requests, handle those requests, interact with our database, serve static assets, and serve data in JSON format. Our server will also do all the authentication and authorization work and we hope to implement a mailer.
 
-5. MongoDB Database. Our database will act as the store for all the information we want to save. Thsi includes, user data, shift data and business data.
+5. **MongoDB Database.** Our database will act as the store for all the information we want to save. Thsi includes, user data, shift data and business data.
 
 # 10. Detail any third party services that your App will use.
 
-- DigitalOcean for hosting
-- MongoDB for the database
-- Figma for developing the wireframes
-- Trello for general project management
-- Git and Github for version control
+- **DigitalOcean** for hosting
+- **MongoDB** for the database
+- **Figma** for developing the wireframes
+- **Trello** for general project management
+- **Git** and **Github** for version control
 
 # 11. Identify the database to be used in your app and provide a justification for your choice.
 helps you scaling
@@ -253,40 +253,56 @@ For individual features, Our plan is to use separate `feature` branches cloned o
 
 #### Step 3: Create your new feature branch - This is important! Otherwise we’ll be conflicting up the wazoo on develop :P And try to name your branch smart! Use the name on the Trello card you’re working on, if possible.
 
-git checkout -b login-form develop
-(note the ‘develop’ on the end, makes sure it creates the branch off of ‘develop’, not ‘master’)
+> `git checkout -b login-form develop`
+
+> (note the ‘develop’ on the end, makes sure it creates the branch off of ‘develop’, not ‘master’)
 
 #### Step 4: Make your changes! Do your code!
 
-	:tada_emoji:
+> <-- 🎉  -->
 
 #### Step 5: Add and commit your changes to your branch
 
-	git add . or git add -A 
-	git commit -m “A descriptive and useful commit message please!”
+> `git add .`
 
-#### Step 6: Change back to ‘develop’
+> `git commit -m “A descriptive and useful commit message please!”`
 
-git checkout develop
+#### Step 6: Push your branch to github (for history's sake)
 
-#### Step 7: Do a git pull (on ‘develop’ branch) - this is to make sure that if someone else has gone ahead and pushed since you last worked on it, you’re all up to speed. ALWAYS GIT PULL BEFORE PUSH! :D
+> `git push origin login-form`
 
-git pull origin develop 
-(or just git pull if you’ve already set your upstream)
+#### Step 7: Change back to ‘develop’
 
-#### Step 8: Merge your branch back in (Again: Don’t forget to pull, first!)
+> `git checkout develop`
 
-git merge --no-ff login-form develop
+#### Step 8: Do a git pull (on ‘develop’ branch) - this is to make sure that if someone else has gone ahead and pushed since you last worked on it, you’re all up to speed. *ALWAYS GIT PULL BEFORE PUSH! :D*
 
-#### Step 9: Push your change to develop
+> `git pull -u origin develop`
 
-git push origin develop
+> (or just `git pull` if you’ve already set your upstream)
+
+#### Step 9: Merge your branch back in (Again: Don’t forget to pull, first!)
+
+> `git merge --no-ff login-form develop`
+
+#### Step 10: Push your change to develop
+
+> `git push origin develop`
 
 # 19. Provide an overview and description of your Testing process.
 
-> Jest Unit Testing? 
+We plan to implement two types of tests: 
 
-> Basic Integration Tests
+- **Unit Tests**:  To test functions and components
+- **Integration Tests**: To 'black box' test functionality of our code as a whole
+
+We plan to integrate Jest for our main Test suite, as well as Enzyme to test React components. Tests for React components will live inside a /test/ subfolder inside the component folder itself.
+
+For known and pre-designed code components, we plan to implement some level of T.D.D, writing tests before code, to garauntee that the code functions as planned. In cases where more inventive code solutions are required, we will implement tests for these functions retroactively.
+
+Integration Testing will mostly happen on the backend and will be used to test database and model data, as well as larger function chains. 
+
+We have extended goals to integrate Continuous Integration using TravisCI - This would enable us to be able to automatically run tests, before deploying to our `master` branch. This may or may not get implemented, depending on how complete the project gets.
 
 # 20. Discuss and analyse requirements related to information system security.
 Managers will need to be confident that only they can access their account, manage employees and approve employee timesheets. Employees will need to be confident that only they can submit their own time sheets. We will facilitate this by implementing server-side authorization and authenticantion.
