@@ -75,17 +75,24 @@ Our app is made up of five main components:
 > Mongo if atlas etc? Mail: Nodemailer? Sendgrid/Mailgun? 
 
 # 11. Identify the database to be used in your app and provide a justification for your choice.
-helps you scaling
-MongoDB
+We will use <b>MongoDB</b> for our database. The benefits are:
+- Faster than SQL database
+- Use less space
+- Open source
+- More flexible (no need pre-defined schema)
+- Used by big companies (e.g. Expedia, Bosch, Otto, eBay, Gap, Forbes, Foursquare, Adobe, Intuit, Metlife, BuzzFeed, Crittercism, CitiGroup, the City of Chicago, others.)
 
 # 12. Discuss the database relations to be implemented.
+We will implement three relationships in our database:
 
-> Talk about the Schema headers - short info for each
+- In every employee document, the business property is a reference to a business document. This is because every employee belongs to a business.
+- In every shift document, the employee property is a reference to an employee document. This is because every shift belongs to an employee.
+- In every business document, the manager property is a reference to a manager document. This is because every business belongs to a manager.
 
 # 13. Provide your database schema design.
 
 ```javascript
-const employerSchema = 
+const managerSchema = 
 {
   id: String,
   email: String,
@@ -129,9 +136,9 @@ const businessSchema = {
   name: String,
   address: String,
   locations: [String],
-  owner: {
+  manager: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Employer'
+    ref: 'Manager'
   }
 }
 ```
