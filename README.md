@@ -150,40 +150,56 @@ For individual features, Our plan is to use separate `feature` branches cloned o
 
 #### Step 3: Create your new feature branch - This is important! Otherwise we’ll be conflicting up the wazoo on develop :P And try to name your branch smart! Use the name on the Trello card you’re working on, if possible.
 
-git checkout -b login-form develop
-(note the ‘develop’ on the end, makes sure it creates the branch off of ‘develop’, not ‘master’)
+> `git checkout -b login-form develop`
+
+> (note the ‘develop’ on the end, makes sure it creates the branch off of ‘develop’, not ‘master’)
 
 #### Step 4: Make your changes! Do your code!
 
-	:tada_emoji:
+> <-- 🎉  -->
 
 #### Step 5: Add and commit your changes to your branch
 
-	git add . or git add -A 
-	git commit -m “A descriptive and useful commit message please!”
+> `git add .`
 
-#### Step 6: Change back to ‘develop’
+> `git commit -m “A descriptive and useful commit message please!”`
 
-git checkout develop
+#### Step 6: Push your branch to github (for history's sake)
 
-#### Step 7: Do a git pull (on ‘develop’ branch) - this is to make sure that if someone else has gone ahead and pushed since you last worked on it, you’re all up to speed. ALWAYS GIT PULL BEFORE PUSH! :D
+> `git push origin login-form`
 
-git pull origin develop 
-(or just git pull if you’ve already set your upstream)
+#### Step 7: Change back to ‘develop’
 
-#### Step 8: Merge your branch back in (Again: Don’t forget to pull, first!)
+> `git checkout develop`
 
-git merge --no-ff login-form develop
+#### Step 8: Do a git pull (on ‘develop’ branch) - this is to make sure that if someone else has gone ahead and pushed since you last worked on it, you’re all up to speed. *ALWAYS GIT PULL BEFORE PUSH! :D*
 
-#### Step 9: Push your change to develop
+> `git pull -u origin develop`
 
-git push origin develop
+> (or just `git pull` if you’ve already set your upstream)
+
+#### Step 9: Merge your branch back in (Again: Don’t forget to pull, first!)
+
+> `git merge --no-ff login-form develop`
+
+#### Step 10: Push your change to develop
+
+> `git push origin develop`
 
 # 19. Provide an overview and description of your Testing process.
 
-> Jest Unit Testing? 
+We plan to implement two types of tests: 
 
-> Basic Integration Tests
+- **Unit Tests**:  To test functions and components
+- **Integration Tests**: To 'black box' test functionality of our code as a whole
+
+We plan to integrate Jest for our main Test suite, as well as Enzyme to test React components. Tests for React components will live inside a /test/ subfolder inside the component folder itself.
+
+For known and pre-designed code components, we plan to implement some level of T.D.D, writing tests before code, to garauntee that the code functions as planned. In cases where more inventive code solutions are required, we will implement tests for these functions retroactively.
+
+Integration Testing will mostly happen on the backend and will be used to test database and model data, as well as larger function chains. 
+
+We have extended goals to integrate Continuous Integration using TravisCI - This would enable us to be able to automatically run tests, before deploying to our `master` branch. This may or may not get implemented, depending on how complete the project gets.
 
 # 20. Discuss and analyse requirements related to information system security.
 
