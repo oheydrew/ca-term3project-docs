@@ -48,13 +48,73 @@ ERD
 
 # 13. Provide your database schema design.
 
+```javascript
+const employerSchema = 
+{
+  id: String,
+  email: String,
+  password: String
+}
 
+const employeeSchema = {
+  id: String,
+  name: String,
+  email: String,
+  password: String, // randomly generate a password upon creation and send emial to employee
+  location: [ String ],
+  standardRate: Number, // cents
+  overtimeOneRate: Number, // cents
+  overtimeTwoRate: Number, // cents
+  business: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Business'
+  }
+}
+
+const shiftSchema = 
+{
+  id: String,
+  employee: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Employee'
+  },
+  date: Number,
+  location: String,
+  startTime: Number,
+  endTime: Number,
+  standardMinutes: Number,
+  overtimeOneMinutes: Number,
+  overtimeTwoMinutes: Number,
+  totalPay: Number, // cents
+  status: String
+}
+
+const businessSchema = {
+  name: String,
+  address: String,
+  locations: [String],
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Employer'
+  }
+}
+```
 
 # 14. Provide User stories for your App.
+### User Profiles
+<img src="assets/images/user_stories/User_Profiles.png" width="250" align="top">
 
-Tick! Woo!
+### User Stories(Employee)
+<img src="assets/images/user_stories/Employee_User_Story_1.png" width="250" align="top">
+<img src="assets/images/user_stories/Employee_User_Story_2.png" width="250" align="top">
+<img src="assets/images/user_stories/Employee_User_Story_3.png" width="250" align="top">
 
+### User Stories(Employer)
+<img src="assets/images/user_stories/Employer_User_Story_1.png" width="250" align="top">
+<img src="assets/images/user_stories/Employer_User_Story_2.png" width="250" align="top">
+<img src="assets/images/user_stories/Employer_User_Story_3.png" width="250" align="top">
 
+Link To: [User Stories Trello Board](https://trello.com/b/1kl5tgnk)
 
 # 15. Provide Wireframes for your App.
 
