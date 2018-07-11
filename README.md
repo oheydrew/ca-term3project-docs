@@ -7,6 +7,8 @@ One of Edwin’s biggest challenges is keeping track of employee hours worked, c
 # 3. Describe the client’s current setup and data.
 Red Rocks Charcoal Chicken does not currently implement a digital solution to this problem. They are currently using an excel spreadsheet to manage employee data and employee expenses. The managers of each store must manually update the spreadsheet at the end of every week- This is time consuming and could better be handled through the use of an app and database solution.
 
+> **Talk about data structure**
+
 # 4. Describe the project will you be conducting and how your App will address the client’s needs.
 We will develop an online app that will enable Ed’s employees to easily enter in the amount of hours they’ve worked. The app will automatically calculate the standard and overtime hours based on the information, and display this information on a dashboard that Ed can view. Ed can add/remove employees from the system and review the submissions before approving them. The dashboard will also include an overview of past wages paid, which he filter by various fields (dates, locations, employee, etc).
 
@@ -18,50 +20,51 @@ MongoDB Database
 React on Frontend
 Framework?? - create react app? 
 
+> Describe the software ie React, Express, MongoDB, etc with short descriptions for each
+
 # 6. Identify and describe the network setup you will use in your development.
-.
+> It's a web app- Talk about Laptop for Employer, Mobile for Employee etc
 
 # 7. Identify and describe the infrastructure (i.e. hardware) that your App will run on.
 
-Web App - DigitalOcean? Production plans?
+> Web App - DigitalOcean? Production plans? Production Environment plans?
 
 # 8. Describe the architecture of your App.
 
-Front-side: 1 app 
+> Explain out the architecture - maybe put up original whiteboard pic and talk to the "3 app" model etc
 
 # 9. Explain the different high-level components (abstractions) in your App.
 
-Talk about Employee vs Employer sections
-Talk about 5 main pages: Employee Dash, Employer Approvals, Employer Reports, Employer Business Settings, Employee Management
+> Talk about Employee vs Employer sections Talk about 5 main pages: Employee Dash, Employer Approvals, Employer Reports, Employer Business Settings, Employee Management
 
 # 10. Detail any third party services that your App will use.
 
-Mail: Nodemailer? Sendgrid/Mailgun? 
+> Mongo if atlas etc? Mail: Nodemailer? Sendgrid/Mailgun? 
 
 # 11. Identify the database to be used in your app and provide a justification for your choice.
 
-MongoDB
+> MongoDB
 
 # 12. Discuss the database relations to be implemented.
 
-ERD 
+> Talk about the Schema headers - short info for each
 
 # 13. Provide your database schema design.
 
-
+> Schemas
 
 # 14. Provide User stories for your App.
 
-Tick! Woo!
+> Provide User Stories Image
 
-
+> Provide Trello link
 
 # 15. Provide Wireframes for your App.
 
-Half Tick! Design / Prettier Wireframes on the way
+> Initial Wireframes
 
+> Design Wireframes
 
-
 # 16. Describe the way Tasks are being allocated and tracked in your project.
 
 ## [Main Scrum Trello Board](https://trello.com/b/DFlgggpu)
@@ -135,24 +138,65 @@ Master (Protected): The `master` branch is ‘Protected’ against any `git push
 
 For individual features, Our plan is to use separate `feature` branches cloned off of the `develop` branch. These branches will be merged into the `develop` branch, after changes are pulled and conflicts resolved. We intend to push these `feature` branches as well, to keep a record of our progress, though this isn’t really necessary for a project of this scale.
 
+## **Creating a feature branch (Example, “Login Form”)**
 
+#### Step 1: Make sure you’re in ‘develop’
 
+> `git checkout develop`
 
+#### Step 2: Pull the changes from the main repo, getting you up to date
+
+> `git pull origin develop`
+
+#### Step 3: Create your new feature branch - This is important! Otherwise we’ll be conflicting up the wazoo on develop :P And try to name your branch smart! Use the name on the Trello card you’re working on, if possible.
+
+git checkout -b login-form develop
+(note the ‘develop’ on the end, makes sure it creates the branch off of ‘develop’, not ‘master’)
+
+#### Step 4: Make your changes! Do your code!
+
+	:tada_emoji:
+
+#### Step 5: Add and commit your changes to your branch
+
+	git add . or git add -A 
+	git commit -m “A descriptive and useful commit message please!”
+
+#### Step 6: Change back to ‘develop’
+
+git checkout develop
+
+#### Step 7: Do a git pull (on ‘develop’ branch) - this is to make sure that if someone else has gone ahead and pushed since you last worked on it, you’re all up to speed. ALWAYS GIT PULL BEFORE PUSH! :D
+
+git pull origin develop 
+(or just git pull if you’ve already set your upstream)
+
+#### Step 8: Merge your branch back in (Again: Don’t forget to pull, first!)
+
+git merge --no-ff login-form develop
+
+#### Step 9: Push your change to develop
+
+git push origin develop
 
 # 19. Provide an overview and description of your Testing process.
 
-TBC - Unit Testing? Basic Integration Tests
+> Jest Unit Testing? 
+
+> Basic Integration Tests
 
 # 20. Discuss and analyse requirements related to information system security.
 
-Lol hax - JWT’s, Cookies, No Local Storage, Hash Passwords, Upload all passwords in plain text to rainbow table
+> Lol hax - JWT’s, Cookies, No Local Storage, Hash Passwords, Upload all passwords in plain text to rainbow table
 
 # 21. Discuss methods you will use to protect information and data.
 
-Lol hax - JWT’s, Cookies, No Local Storage, Hash Passwords, Upload all passwords in plain text to rainbow table
+> Lol hax - JWT’s, Cookies, No Local Storage, Hash Passwords, Upload all passwords in plain text to rainbow table
+
+> Secure databases
 
 # 22. Research what your legal obligations are in relation to handling user data.
 
-Somebody to do some cursory research?
+> Somebody to do some cursory research?
 
 
