@@ -40,7 +40,7 @@ We will host our App on Digital Ocean. We will buy the cheapest plan, which give
 
 ### Frontend:
 
-We will create three seperate frontend apps. One for guest users, one for employee users, and one for the employer users. Our server will serve these apps to the user, depending on the authorization details they provide. Each app will utilise react-router to enable client-side routing within each app. These frontend apps will comminucate with our backend server via api requests.
+We will create three seperate frontend apps. One for guest users, one for employee users, and one for the manager users. Our server will serve these apps to the user, depending on the authorization details they provide. Each app will utilise react-router to enable client-side routing within each app. These frontend apps will comminucate with our backend server via api requests.
 
 ### Backend:
 
@@ -57,7 +57,7 @@ Our app is made up of five main components:
 
 2. Employee App. Our server will serve the employee app for users who provide employee authorization details. This app will have three main react components: AppRouter (with Navigation), DashboardPage (to view and submit timesheets) and SettingsPage (to update accoutn details).
 
-3. Employer App. Our server will serve the employer app for users who provide employer authorization details. This app will have five main react components: AppRouter (with Navigation), ReportPage (to generate a report of timesheets), ApprovePage (to approve submitted timesheets), ManageEmployeesPage (to manage employees), SettingsPage (to manage account settings).
+3. Manager App. Our server will serve the manager app for users who provide manager authorization details. This app will have five main react components: AppRouter (with Navigation), ReportPage (to generate a report of timesheets), ApprovePage (to approve submitted timesheets), ManageEmployeesPage (to manage employees), SettingsPage (to manage account settings).
 
 4. Express Backend. Our server will listen for requests, handle those requests, interact with our database, serve static assets, and serve data in JSON format. Our server will also do all the authentication and authorization work and we hope to implement a mailer.
 
@@ -289,17 +289,10 @@ git push origin develop
 > Basic Integration Tests
 
 # 20. Discuss and analyse requirements related to information system security.
-
-> Lol hax - JWT’s, Cookies, No Local Storage, Hash Passwords, Upload all passwords in plain text to rainbow table
+Managers will need to be confident that only they can access their account, manage employees and approve employee timesheets. Employees will need to be confident that only they can submit their own time sheets. We will facilitate this by implementing server-side authorization and authenticantion.
 
 # 21. Discuss methods you will use to protect information and data.
-
-> Lol hax - JWT’s, Cookies, No Local Storage, Hash Passwords, Upload all passwords in plain text to rainbow table
-
-> Secure databases
+We will implement a login endpoint that checks the incoming login details against details stored in the database. The server will then create a JWT and provide it to that user via a private cookie.  Additionally, we will protect all our api endpoints with middleware that will check requests for a JWT. If a valid JWT is not provided, the server will return a status of 401. If a valid JWT is provided, the server will handle the request appropriately. We will also implement a logout endpoint that will remove the JWT from the user's cookie. Additionally, we will avoid storing authorization data in local storage, and we will also hash incoming passwords before storing them in the database.
 
 # 22. Research what your legal obligations are in relation to handling user data.
-
-> Somebody to do some cursory research?
-
-
+Under Australian Privacy laws, we are required to safeguard any user information that we collect and store. We have the responsibility to protect users' personal information from theft, misuse, interference, loss, unauthorized access, modification and disclosure. We must also take reasonable steps to destroy or de-identify personal information when it is no longer needed. Personal information can include name, signature, address, email, telephone number, date of birth, medical records, bank account details, etc.
