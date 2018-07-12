@@ -7,17 +7,15 @@ One of Edwin’s biggest challenges is keeping track of employee hours worked, c
 # 3. Describe the client’s current setup and data.
 Red Rocks Charcoal Chicken does not currently implement a digital solution to this problem. They are currently using an excel spreadsheet to manage employee data and employee expenses. The managers of each store must manually update the spreadsheet at the end of every week- This is time consuming and could better be handled through the use of an app and database solution.
 
-> **Talk about data structure**
-
 # 4. Describe the project will you be conducting and how your App will address the client’s needs.
-We will develop an online app that will enable Ed’s employees to easily enter in the amount of hours they’ve worked. The app will automatically calculate the standard and overtime hours based on the information, and display this information on a dashboard that Ed can view. Ed can add/remove employees from the system and review the submissions before approving them. The dashboard will also include an overview of past wages paid, which he filter by various fields (dates, locations, employee, etc).
+We will develop an online app that will enable Ed’s employees to easily enter in the amount of hours they’ve worked. The app will automatically calculate the standard and overtime hours based on the information, and display this information on a dashboard that Ed can view. Ed can add/remove employees from the system and review the submissions before approving them. The dashboard will also include an overview of past wages paid, which he filters by various fields (dates, locations, employee, etc).
 
 This app will streamline the process of calculating wages, reduce the number of errors and remove the need to manually update an excel spreadsheet.
 
 # 5. Identify and describe the software (including databases) to be used in your App.
 
 ### Frontend:
-We will develop the frontend in JavaScript, using the React library. We will also use react-router to enable client-side routing and Webpack as our asset budnler.
+We will develop the frontend in JavaScript, using the React library. We will also use react-router to enable client-side routing and Webpack as our asset bundler.
 
 ### Backend:
 We will develop the backend in JavaScript, using the express library to speed up the process. 
@@ -103,8 +101,6 @@ const employeeSchema = {
   password: String, // randomly generate a password upon creation and send emial to employee
   location: [ String ],
   standardRate: Number, // cents
-  overtimeOneRate: Number, // cents
-  overtimeTwoRate: Number, // cents
   business: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Business'
@@ -123,8 +119,8 @@ const shiftSchema =
   startTime: Number,
   endTime: Number,
   standardMinutes: Number,
-  overtimeOneMinutes: Number,
-  overtimeTwoMinutes: Number,
+  overtimeMinutes: Number,
+  doubleTimeMinutes: Number,
   totalPay: Number, // cents
   status: String
 }
@@ -133,6 +129,8 @@ const businessSchema = {
   name: String,
   address: String,
   locations: [String],
+  overtimeMultiplier: Number,
+  doubleTimeMultiplier: Number,
   manager: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Manager'
