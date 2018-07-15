@@ -84,17 +84,35 @@ We will host our App on Digital Ocean. We will buy the cheapest plan, which give
 
 # 8. Describe the architecture of your App.
 
-### Overview:
+## Overview:
 
 ```
 
 /
 -- /backend/
        /models/
-       /controllers/
-       /routes/
+           /Employee.js
+           /Manager.js
+           /Shifts.js
+           /Business.js
+       /routes/                              ## routes start here for each 
+           /authRouter.js                    ## /api/route/ namespace
+           /employeeRouter.js   
+           /...etc                                      
+       /controllers/                         ## ...and refer to 'controllers' 
+           /employeeRouter.js                ## for their methods/logic
+           /...etc                                  
        /middleware/
+           /authMiddleware.js
+           /logger.js
+           /...etc
        /tests/
+           /unit/
+              /example.test.js
+           /integration/
+              /example.test.js
+           /route/
+              /example.test.js
        server.js                             ## Server Entry Point
 
 -- /frontend/
@@ -123,13 +141,19 @@ We will host our App on Digital Ocean. We will buy the cheapest plan, which give
           /tests/
 
 -- /node_modules/
--- package.json
--- README.md
--- webpack.config.js
+-- /package.json
+-- /README.md
+-- /webpack.config.js
 -- (other files ie .gitignore, .eslint.rc etc etc)
 ```
 
-### Frontend:
+The otherarching Architecture of our App is that it will be one NodeJS Express App Backend, which serves 3 smaller React 'apps' in separate index.js entry points.
+
+All of these higher level components will live in the same root folder structure under their own subfolders- with the package.lock and node_modules in the root- able to run the entire app with `npm run start` (and other dev commands).
+
+This single-backend containing multiple-frontends approach allows for the entire app to be easily containerized and to have all our apps run from the same root using `npm run` commands. Each frontend app will be able to be dev served using `npm run dev-app` for development purposes.
+
+## Frontend:
 
 We will create three seperate frontend apps. 
 - 'Guest' (a login portal, essentially)
@@ -138,13 +162,23 @@ We will create three seperate frontend apps.
 
 Once authenticated, within each frontend app we will utilise react-router to enable client-side routing within each app. These frontend apps will comminucate with our backend server via api requests.
 
-### Backend:
+Each app splits out into per-page (view) folders, with components (and style for each component) living in their own folders inside these. The first component, `router`, holds the `AppRouter.js`, which is the main React entry point, with the `React-Router` layout. From here, components are pulled in.
+
+State will be managed within each page separately, inside the components which require them. Instead of using a large, complex "Redux" service, or an even more complex "Single Source" of state in the AppRouter, we opted to hold state in each page. This could get messy if the app were to scale, but in the scope and timeframe of the project we decided this simpler, stateful component style would serve us better, for now.
+
+## Backend:
 
 The backend app will be running a NodeJS Express server, running 'server.js' on our DigitalOcean virtual computer. Our server will listen for requests and handle them according to the endpoints that the requests go to. Our server will serve all the static files to the user, depending on the authorization details they provide.
+
+#### Authorization and Authentication logic
 
 The backend webserver will be set up to listen for requests at the '*' root, and direct them to the `Guest` app if they have no cookie, or an invalid cookie. They can select whether to login as an *Employee* or *Manager*, here (registration will be handled by Managers), and will forward them a cookie, then redirect them back to the root.
 
 Upon arriving here a second time, the user will be logged in with the relevant cookie. This cookie will hold their authentication details, and whether they are authenticated for the *manager* or *employee* app. Our server will serve one of these these apps to the user, depending on the authorization details they provide. 
+
+#### Routing and "Controller" logic
+
+Routing will be handled by routes files, scoped to each API Endpoint. 
 
 ### Database:
 
