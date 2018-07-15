@@ -39,7 +39,7 @@ As far as branding and naming, we had the idea of calling the app "Chicken-In" a
 # 3. Describe the client’s current setup and data.
 Red Rocks Charcoal Chicken does not currently implement a digital solution to this problem. They are currently using an excel spreadsheet to manage employee data and employee expenses. The managers of each store must manually update the spreadsheet at the end of every week- This is time consuming and could better be handled through the use of an app and database solution.
 
-Ideally, it would be nice to be able to work with the client's current paper data system, but this would require scanning in documents and we believe this process would only serve to frustrate, not help the situation. Getting everybody on board with an app-based system and doing away with paper would be the mose efficient solution.
+Ideally, it would be nice to be able to work with the client's current paper data system, but this would require scanning in documents and we believe this process would only serve to frustrate, not help the situation. Getting everybody on board with an app-based system and doing away with paper would be the most efficient solution.
 
 <br>
 <br>
@@ -387,7 +387,7 @@ Link To: [User Stories Trello Board](https://trello.com/b/1kl5tgnk)
 
 # 15. Provide Wireframes for your App.
 
-Wireframes were a 2-stage process for our group. A quick, dirty first pass, and then a more design-focussed second pass, later on. x
+Wireframes were a 2-stage process for our group. A quick, dirty first pass, and then a more design-focussed second pass, later on. 
 
 ## Initial Wireframes
 We started out wireframes once we had our user stories and general feature set down. We worked on these together, quite quickly, so as to give us a foundation as to what Architecture we would be looking at using. From there, we moved on to more specific design wireframes.
