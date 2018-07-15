@@ -184,7 +184,7 @@ We will host our App on Digital Ocean. We will buy the cheapest plan, which give
 -- (other files ie .gitignore, .eslint.rc etc etc)
 ```
 
-The otherarching Architecture of our App is that it will be one NodeJS Express App Backend, which serves 3 smaller React 'apps' in separate index.js entry points.
+The other arching Architecture of our App is that it will be one NodeJS Express App Backend, which serves 3 smaller React 'apps' in separate index.js entry points.
 
 All of these higher level components will live in the same root folder structure under their own subfolders- with the package.lock and node_modules in the root- able to run the entire app with `npm run start` (and other dev commands).
 
@@ -211,7 +211,7 @@ The backend app will be running a NodeJS Express server, running 'server.js' on 
 
 The backend webserver will be set up to listen for requests at the '*' root, and direct them to the `Guest` app if they have no cookie, or an invalid cookie. They can select whether to login as an *Employee* or *Manager*, here (registration will be handled by Managers), and will forward them a cookie, then redirect them back to the root.
 
-Upon arriving here a second time, the user will be logged in with the relevant cookie. This cookie will hold their authentication details, and whether they are authenticated for the *manager* or *employee* app. Our server will serve one of these these apps to the user, depending on the authorization details they provide. 
+Upon arriving here a second time, the user will be logged in with the relevant cookie. This cookie will hold their authentication details, and whether they are authenticated for the *manager* or *employee* app. Our server will serve one of these apps to the user, depending on the authorization details they provide. 
 
 #### Routing and "Controller" logic
 
@@ -254,7 +254,7 @@ Our app is made up of five main components:
 
 > 4. **Express Backend.** Our server will listen for requests, handle those requests, interact with our database, serve static assets, and serve data in JSON format. Our server will also do all the authentication and authorization work and we hope to implement a mailer.
 
-> 5. **MongoDB Database.** Our database will act as the store for all the information we want to save. Thsi includes, user data, shift data and business data.
+> 5. **MongoDB Database.** Our database will act as the store for all the information we want to save. This includes, user data, shift data and business data.
 
 <br>
 <br>
@@ -292,10 +292,10 @@ We will use <b>MongoDB</b> for our database. The benefits are:
 # 12. Discuss the database relations to be implemented.
 We will implement three relationships in our database:
 
-- In every `employee` document, the `business` property is a reference to a `business` document. This is because every employee belongs to a business.
+- In every `employee` document, the `business` property is a reference to a `business` document. This is because every `employee` belongs to a `business`.
 
 - In every `shift` document, the `employee` property is a reference to an `employee` document. This is because every `shift` belongs to an `employee`.
-- In every `business` document, the `manager` property is a reference to a `manager` document. This is because every business belongs to a `manager`.
+- In every `business` document, the `manager` property is a reference to a `manager` document. This is because every `business` belongs to a `manager`.
 
 <br>
 <br>
@@ -608,7 +608,7 @@ We plan to implement two types of tests:
 
 We plan to integrate Jest for our main Test suite, as well as Enzyme to test React components. Tests for React components will live inside a /test/ subfolder inside the component folder itself.
 
-For known and pre-designed code components, we plan to implement some level of T.D.D, writing tests before code, to garauntee that the code functions as planned. In cases where more inventive code solutions are required, we will implement tests for these functions retroactively.
+For known and pre-designed code components, we plan to implement some level of T.D.D, writing tests before code, to guarantee that the code functions as planned. In cases where more inventive code solutions are required, we will implement tests for these functions retroactively.
 
 Integration Testing will mostly happen on the backend and will be used to test database and model data, as well as larger function chains. 
 
