@@ -84,13 +84,67 @@ We will host our App on Digital Ocean. We will buy the cheapest plan, which give
 
 # 8. Describe the architecture of your App.
 
+### Overview:
+
+```
+
+/
+-- /backend/
+       /models/
+       /controllers/
+       /routes/
+       /middleware/
+       /tests/
+       server.js                             ## Server Entry Point
+
+-- /frontend/
+      /dist/                                 ## webpack bundled production files
+      /src/
+          /employeeApp/
+              /dashboardPage/
+                  /exampleComponent/
+                      exampleComponent.js
+                      exampleComponent.scss
+              /router/                       ## Shared Components live in router
+                  /exampleComponent/
+                      exampleComponent.js
+                      exampleComponent.scss
+                  /AppRouter.js              ## Main React Entry Point
+              /settingsPage/
+                  ## components go here
+              /index.html                    ## Entry Point served by backend              
+              /index.js
+              /styles.scss                   ## Overall Page styles
+          /managerApp/
+              ## Same structure as above
+          /guestApp/
+              ## Same structure as above
+          /img/
+          /tests/
+
+-- /node_modules/
+-- package.json
+-- README.md
+-- webpack.config.js
+-- (other files ie .gitignore, .eslint.rc etc etc)
+```
+
 ### Frontend:
 
-We will create three seperate frontend apps. One for guest users, one for employee users, and one for the manager users. Our server will serve these apps to the user, depending on the authorization details they provide. Each app will utilise react-router to enable client-side routing within each app. These frontend apps will comminucate with our backend server via api requests.
+We will create three seperate frontend apps. 
+- 'Guest' (a login portal, essentially)
+- 'Employee'
+- 'Manager' 
+
+Once authenticated, within each frontend app we will utilise react-router to enable client-side routing within each app. These frontend apps will comminucate with our backend server via api requests.
 
 ### Backend:
 
-We will run server.js on our DigitalOcean virtual computer. Our server will listen for requests and handle them according to the endpoints that the requests go to. Our server will serve all the static files to the user, depending on the authorization details they provide.
+The backend app will be running a NodeJS Express server, running 'server.js' on our DigitalOcean virtual computer. Our server will listen for requests and handle them according to the endpoints that the requests go to. Our server will serve all the static files to the user, depending on the authorization details they provide.
+
+The backend webserver will be set up to listen for requests at the '*' root, and direct them to the `Guest` app if they have no cookie, or an invalid cookie. They can select whether to login as an *Employee* or *Manager*, here (registration will be handled by Managers), and will forward them a cookie, then redirect them back to the root.
+
+Upon arriving here a second time, the user will be logged in with the relevant cookie. This cookie will hold their authentication details, and whether they are authenticated for the *manager* or *employee* app. Our server will serve one of these these apps to the user, depending on the authorization details they provide. 
 
 ### Database:
 
