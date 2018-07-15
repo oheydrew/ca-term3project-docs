@@ -20,14 +20,16 @@ Red Rocks Charcoal Chicken does not currently implement a digital solution to th
 Ideally, it would be nice to be able to work with the client's current paper data system, but this would require scanning in documents and we believe this process would only serve to frustrate, not help the situation. Getting everybody on board with an app-based system and doing away with paper would be the mose efficient solution.
 
 # 4. Describe the project will you be conducting and how your App will address the client’s needs.
-We will develop an online app that will enable Edwin’s employees to easily enter in the amount of hours they’ve worked. The app will essentially have two parts: **Employee** and **Manager**
+In keeping with the previous comments about doing away with paper, we will develop an online app that will enable Edwin’s employees to easily enter in the amount of hours they’ve worked, and allow the managers to log in, and administrate the process. The app will essentially have two parts: **Employee** and **Manager**
 
+### - Employee Section
 In the **Employee** section, the app will allow employees to log in, enter their shifts, and the app will automatically calculate the standard and overtime hours based on the information, and send this information back to our mongodb database for later retrieval by the **Manager** side of the app. The Employee will also be able to see the status of their entered shifts, from *pending*, to *approved* and *rejected*. 
 
 This will have 2 main views (pages):
 - Add Shift
 - Employee Settings (Update password, etc)
 
+### - Manager Section
 In the **Manager** section, Ed or his managers, can add/remove employees from the system and review the submissions before *approving* them. The dashboard will also include an overview of past wages paid, which he filters by various fields (dates, locations, employee, etc).
 
 This will have 4 main views (pages):
