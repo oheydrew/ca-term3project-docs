@@ -1,3 +1,16 @@
+<img src="assets/images/chicken-in-logo.png">
+
+## 'CHICKEN IN' - RED ROCKS CHARCOAL CHICKEN
+### TIMESHEET AND OVERTIME TRACKING SYSTEM
+
+Coder Academy Group Project 2017 by Drew, Maxi, Shun and Winter - **Team Painframe**
+
+<br>
+<br>
+
+----
+<br>
+
 # 1. Who is your client?
 Our client, Edwin Huang, owns and operates a number of charcoal chicken shops around Victoria, under the brand name “Red Rocks Charcoal Chicken”. He splits his time between working in the stores as a manager, and doing all the administrative/entrepreneurial work as the owner.
 
