@@ -184,7 +184,7 @@ We will host our App on Digital Ocean. We will buy the cheapest plan, which give
 -- (other files ie .gitignore, .eslint.rc etc etc)
 ```
 
-The other arching Architecture of our App is that it will be one NodeJS Express App Backend, which serves 3 smaller React 'apps' in separate index.js entry points.
+The overarching Architecture of our App is that it will be one NodeJS Express App Backend, which serves 3 smaller React 'apps' in separate index.js entry points.
 
 All of these higher level components will live in the same root folder structure under their own subfolders- with the package.lock and node_modules in the root- able to run the entire app with `npm run start` (and other dev commands).
 
