@@ -17,6 +17,8 @@ In both cases, the aim of this project will be to *help both the employees, and 
 # 3. Describe the client’s current setup and data.
 Red Rocks Charcoal Chicken does not currently implement a digital solution to this problem. They are currently using an excel spreadsheet to manage employee data and employee expenses. The managers of each store must manually update the spreadsheet at the end of every week- This is time consuming and could better be handled through the use of an app and database solution.
 
+Ideally, it would be nice to be able to work with the client's current paper data system, but this would require scanning in documents and we believe this process would only serve to frustrate, not help the situation. Getting everybody on board with an app-based system and doing away with paper would be the mose efficient solution.
+
 # 4. Describe the project will you be conducting and how your App will address the client’s needs.
 We will develop an online app that will enable Edwin’s employees to easily enter in the amount of hours they’ve worked. The app will essentially have two parts: **Employee** and **Manager**
 
