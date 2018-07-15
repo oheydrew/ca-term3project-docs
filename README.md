@@ -14,6 +14,10 @@ Big considerations in this project are the differences in the ways in which diff
 
 In both cases, the aim of this project will be to *help both the employees, and the managers, spend less time on the administrative chores of timesheets*. The mobile app for Employees, will need to be simple, responsive, and easy to use- and the app for the managers will need to do a lot of automatic calculation, organization and filtering, to make the managers' jobs easier and simpler. This is about giving them something they will *want* to use, not something that scares them away from the technology.  
 
+We had the thought of making this app a "blank canvas" for inputting any other business's data in, and using it themselves, thus moving away from the specific Red Rock Charcoal Chicken instance, and into more of a reusable, resellable app - but decided to double-down and focus on the specific client that we have, and customize it to their needs (though, coding will be structured in a way that this could still be achievable).
+
+As far as branding and naming, we had the idea of calling the app "Chicken-In" as a reference to "Checking In" to your shift. Edwin found this very funny, and agreed, as it is an internal, employee-facing app.
+
 # 3. Describe the client’s current setup and data.
 Red Rocks Charcoal Chicken does not currently implement a digital solution to this problem. They are currently using an excel spreadsheet to manage employee data and employee expenses. The managers of each store must manually update the spreadsheet at the end of every week- This is time consuming and could better be handled through the use of an app and database solution.
 
@@ -45,20 +49,34 @@ This app will streamline the process of calculating wages, reduce the number of 
 # 5. Identify and describe the software (including databases) to be used in your App.
 
 ### Frontend:
-We will develop the frontend in JavaScript, using the React library. We will also use react-router to enable client-side routing and Webpack as our asset bundler.
+We will develop the frontend in JavaScript, using the React library. We will also use react-router to enable client-side routing and Webpack as our asset bundler. We intend to use custom styling with SCSS for the most part, subsidized by some premade components (such as the AirBNB DatePicker, and TimePicker components, which we will style accordingly).
+
+We plan to do a lot of the calculations of hours and overtime here, in the front-end, to take advantage of client CPU resources and not overload our server.
+
+For testing, we plan to implement Jest, and Enzyme for testing React components.
 
 ### Backend:
-We will develop the backend in JavaScript, using the express library to speed up the process. 
+We will develop the backend in NodeJS, using the Express library to speed up the process. We will use custom middlewares for certain tasks, and plan to use PassportJS for Authentication, and PermitJS for Authorization.
+
+The backend will mostly be handling security with cookies, Authentication and Authorization, as well as storage and removal of data in the database. It will also act as a main entry point for our whole app, serving the relevant front-end index.js entry points according to the client's authorization.
+
+For testing, we plan to implement Jest for both Unit and Integration Tests. For Route Testing, we will use Supertest - a package that can make requests on behalf of our testing suite.
 
 ### Database: 
-We will use MongoDB for our database. The plan is to install our database on the server, as opposed to using a third-party database manager like Atlas or mLab.  We'll use the mongoose library to interact with our database.
+We will use MongoDB for our database. The plan is to install our database on the production server, as opposed to using a third-party database manager like Atlas or mLab, as this will give our app more speed. We'll use the mongoose library to interact with our database in our NodeJS Express backend. We will use Compass as a tool to inspect this database when necessary.
 
 ### Host:
-We will use DigitalOcean to host our App.
+We will use DigitalOcean to host our App. This is a cloud provider much like AWS or GCS, but with a much simpler, more hands-on approach. This will allow us to SSH in to a Linux Compute Server, and allow us to install Node, and run our server in a server process, and our MongoDB in another. 
+
+To begin with, we plan to employ the initial production 'semi manually', by remote-accessing the server with SSH. If time permits, we plan to implement containerization using Docker, and a CI tool such as TravisCI to help automate the production process. We are sceptical that we will have time for this, however. 
 
 # 6. Identify and describe the network setup you will use in your development.
 
-Our app will live in a DiginalOcean virtual computer. Users will enter the domain name, chicken-in.com, into their browser and the server will handle their requests, serve them static assets and serve them data in JSON format. Users will interact with our app entirely on the browser.
+Our app will not need to rely on any external network infrastructure. The system will be 'cloud based', that is, accessible through the internet for both employees and managers. This works best, especially for the employees, who will be able to access it from anywhere at any time.
+
+Our app will live in a DiginalOcean virtual computer. Users will enter the domain name, chicken-in.com, into their browser and the server will handle their requests, serve them static assets and serve them data in JSON format. Users will interact with our app entirely on their phones, or web browser.
+
+This will necessitate an understanding of Web and Internet infrastructure, as well as Internet Protocols and Production Environments. Our chosen production environment, digitalocean, will provide us with some new learnings along the way, but we are excited to tackle them.
 
 # 7. Identify and describe the infrastructure (i.e. hardware) that your App will run on.
 
