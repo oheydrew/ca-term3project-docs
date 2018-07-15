@@ -178,47 +178,75 @@ Upon arriving here a second time, the user will be logged in with the relevant c
 
 #### Routing and "Controller" logic
 
-Routing will be handled by routes files, scoped to each API Endpoint. 
+In most cases, route flow will be: 
 
-### Database:
+`server.js` -> `/routes/exampleRouter.js` -> `/controllers/exampleController.js` -> `models/Example.js`
+
+Routing will be handled by routes files, scoped to each API Endpoint. From here, these routes are pulled in, and each "GET", "POST", etc is routed through to `controllers`, which are also namespaced to their endpoint. The logic in breaking these routes out into routes and controller is around keeping the `routes` files cleaner and more readable, giving us an easy way to see the routes that have been created, and keep it neat and tidy.
+
+Controllers will be where any logic and calculations are needed to be done. Authorization and Authentication logic will be held in their own controller, and be a lot more complex than the simple "CRUD" logic needed by most the other endpoints. 
+
+The models themselves will be required into the controllers, so they can used them.
+
+## Database:
 
 We are planning to install a MongoDB database on our DigitalOcean server. Our backend will query the database and create/update/delete new documents as needed.
+
+We decided to install this on our production server at DigitalOcean directly, as opposed to using Atlas or mLab, as this will give us faster, more direct access to our data. Should we need to scale the app, moving to an offsite service such as Atlas would not be too hard- as this is all coded in through `MONGO_URL` and `MONGO_AUTH` environment variables.
 
 # 9. Explain the different high-level components (abstractions) in your App.
 
 Our app is made up of five main components:
-1. **Guest App.** Our server will serve the guest app for users who have not provided any authorization details. This app will have three main react components: AppRouter (with Navigation), SplashPage (for app information and to login) and ContactPage (for contact details).
 
-2. **Employee App.** Our server will serve the employee app for users who provide employee authorization details. This app will have three main react components: AppRouter (with Navigation), DashboardPage (to view and submit timesheets) and SettingsPage (to update accoutn details).
+> 1. **Guest App.** Our server will serve the guest app for users who have not provided any authorization details. This app will have three main react components: AppRouter (with Navigation), SplashPage (for app information and to login) and ContactPage (for contact details).
 
-3. Manager App. Our server will serve the manager app for users who provide manager authorization details. This app will have five main react components: AppRouter (with Navigation), ReportPage (to generate a report of timesheets), ApprovePage (to approve submitted timesheets), ManageEmployeesPage (to manage employees), SettingsPage (to manage account settings).
+> 2. **Employee App.** Our server will serve the employee app for users who provide employee authorization details.  This app will have three main react components: 
+>  - AppRouter (with Navigation)
+>  - DashboardPage (to view and submit timesheets) 
+>  - SettingsPage (to update account details).
 
-4. **Express Backend.** Our server will listen for requests, handle those requests, interact with our database, serve static assets, and serve data in JSON format. Our server will also do all the authentication and authorization work and we hope to implement a mailer.
+> 3. Manager App. Our server will serve the manager app for users who provide manager authorization details. This app will have five main react components: 
+>  - AppRouter (with Navigation)
+>  - ReportPage (to generate a report of timesheets)
+>  - ApprovePage (to approve submitted timesheets)
+>  - ManageEmployeesPage (to manage employees)
+>  - SettingsPage (to manage business specific settings such as rate multipliers).
 
-5. **MongoDB Database.** Our database will act as the store for all the information we want to save. Thsi includes, user data, shift data and business data.
+> 4. **Express Backend.** Our server will listen for requests, handle those requests, interact with our database, serve static assets, and serve data in JSON format. Our server will also do all the authentication and authorization work and we hope to implement a mailer.
+
+> 5. **MongoDB Database.** Our database will act as the store for all the information we want to save. Thsi includes, user data, shift data and business data.
 
 # 10. Detail any third party services that your App will use.
 
-- **DigitalOcean** for hosting
-- **MongoDB** for the database
-- **Figma** for developing the wireframes
-- **Trello** for general project management
-- **Git** and **Github** for version control
+- **DigitalOcean** for hosting - This is a somewhat similar service to AWS or GCS, except it's a little simpler. Their pricing model is a lot more standardized and their model works on providing a server with SSH access, so there's less "Learning AWS" around the production process. We will need to SSH into this terminal and clone our `master` branch, then install dependencies and run from there.
+
+- **MongoDB** for the database. This will also be installed on our production server, and run as a separate service.
+
+- **Figma** for developing the wireframes. We had a two-stage design process- An initial group-planned mock wireframe, and then more fleshed-out "design" wireframes.
+
+- **Trello** for general project management. We lean *heavily* on this! We've multiple boards for resources and internal info, but it all flows back to our main <a href="https://trello.com/b/DFlgggpu/scrum-board" target="_blank">Scrum</a> board.
+
+- **Git** and **Github** for version control. See below for more detail about our Git workflow.
 
 # 11. Identify the database to be used in your app and provide a justification for your choice.
 We will use <b>MongoDB</b> for our database. The benefits are:
 - Faster than SQL database
+
 - Use less space
+
 - Open source
+
 - More flexible (no need pre-defined schema)
+
 - Used by big companies (e.g. Expedia, Bosch, Otto, eBay, Gap, Forbes, Foursquare, Adobe, Intuit, Metlife, BuzzFeed, Crittercism, CitiGroup, the City of Chicago, others.)
 
 # 12. Discuss the database relations to be implemented.
 We will implement three relationships in our database:
 
-- In every employee document, the business property is a reference to a business document. This is because every employee belongs to a business.
-- In every shift document, the employee property is a reference to an employee document. This is because every shift belongs to an employee.
-- In every business document, the manager property is a reference to a manager document. This is because every business belongs to a manager.
+- In every `employee` document, the `business` property is a reference to a `business` document. This is because every employee belongs to a business.
+
+- In every `shift` document, the `employee` property is a reference to an `employee` document. This is because every `shift` belongs to an `employee`.
+- In every `business` document, the `manager` property is a reference to a `manager` document. This is because every business belongs to a `manager`.
 
 # 13. Provide your database schema design.
 
