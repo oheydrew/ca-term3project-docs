@@ -502,6 +502,8 @@ If a manager wishes to also fill out their own timesheets, they will be required
 As always, with cookies, if a malicious script or other method were to steal the cookie from somebody's browser, they would be able to get access to the site. But this is the case with many cookie based login systems, and can't be helped. We plan to minimize this by implementing short-expiry times on cookies (especially on the manager end). This will require more logins, but is worth it for the additional security benefits.
 
 # 21. Discuss methods you will use to protect information and data.
+One of the key ways we plan to secure information, is not to store irrelevant data at all. This is a system which tracks hours and overtime, not employee information. As such, only the first and last name of the employee is stored, and minimal business information. Nevertheless, the hours and pay rates of employees is stored with identifiable information, as such, we need to take security seriously.
+
 We will implement a login endpoint that checks the incoming login details against details stored in the database. The server will then create a JWT and provide it to that user via a private cookie.  Additionally, we will protect all our api endpoints with middleware that will check requests for a JWT. If a valid JWT is not provided, the server will return a status of 401. If a valid JWT is provided, the server will handle the request appropriately. We will also implement a logout endpoint that will remove the JWT from the user's cookie. Additionally, we will avoid storing authorization data in local storage, and we will also hash incoming passwords before storing them in the database.
 
 # 22. Research what your legal obligations are in relation to handling user data.
