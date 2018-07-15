@@ -414,6 +414,8 @@ We started out wireframes once we had our user stories and general feature set d
 
 ### Link to **<a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">Design Wireframes on Figma</a>**
 
+(I think it's worth noting here that whilst we all contributed to how we wanted this app to look and feel at a higher level, a lot of the credit for the main design implementation and styling choices credit to <a href="https://github.com/mcwinter07/little-bow-peep">Winter</a>, and his incredible eye. We worked on this as a team, provided feedback and guidance, but he's really gone above and beyond in turning these ideas into a beautiful design. Thanks, Winter! 👍)
+
 ### **Guest Pages**
 
 We decided to implement a mobile-first design for our guest and employee login pages as they would be the most frequent users of the Chicken-in Web app. The single page design allows the users to rapidly digest the purpose of the app with a summary of its full functionality in the about section.
@@ -517,23 +519,40 @@ The board is designed to be self-documenting, and make sense, so as not to be to
 
 From the outset of this project, we decided to take a lot from the Agile methodology. Given that each of us has our own unique strengths, we have embraced the idea that we will be far more powerful as a team, and the Agile (Specifically, Scrum) practices offer a lot in the way of organization. 
 
+### Agile Practices Included:
+- Scrum Board (See Scrum section for breakdown)
+- StandUp Meetings
+- Ideation sessions (multiple for design, architecture, initial planning)
+- Review (Retro)
+- Code Reviews
+
+### Ideation
 <a href="assets/images/ideation.jpg" target="_blank"><img src="assets/images/ideation.jpg" width="800"></a>
 
-We kicked it off with a big Ideation whiteboard session. This was great in laying out what we needed and wanted to achieve given the client’s needs. From this, we started up our Trello board “Ideas” column, and the flow progressed from there.
+We kicked it off with a big Ideation whiteboard session. This was great in laying out what we needed and wanted to achieve given the client’s needs. Further meetings were had later in this vein for the Architecture section, and again for Design. Iterations continued with each meeting, and the product started to take form. From this, we started up our Trello board “Ideas” column, and the flow progressed from there.
 
 <a href="assets/images/ideation2.jpg" target="_blank"><img src="assets/images/ideation2.jpg" width="400"></a> <a href="assets/images/postit.jpg" target="_blank"><img src="assets/images/postit.jpg" width="400"></a>
 
 (We also had fun. Winter got *really* into his post-it notes :D)
 
+### StandUps
 We also agreed to daily stand-ups, so as to get one another on the same page as far as what we’re all working on. We had some big conversations about our plans to break down tasks and work together. We all agreed that whilst it’s important to lean on our strengths, nobody should have to feel as if they are “Carrying” any aspect of the project - from design, through to code. To this end, regular stand-ups, and breaking things down into achievable chunks were very important to all of us. 
 
+### Blocked / Review
 Adding in a “Blocked” step to the scrum board was another big part of this. We agreed that if something’s holding us up, we can park the card here and move on to something else, after notifying the team or finding someone to help. We plan to hold weekly reviews- Perhaps not full “retrospectives”, as we may not have time, but at the very least borrow from the “safe, blameless space” ethos while holding these reviews.  
 
 As far as Timeline planning goes, we have begun to track our progress using Maxi’s previously made Timeline Tracker app! 
 
+### Timeline Planning
 <a href="assets/images/timeline.png" target="_blank"><img src="assets/images/timeline.png" width="800"></a>
 
 This was actually really useful! It was really impressive and empowering to see how we could actually use a tool that was previously made by one of our own, to further our project needs. Thanks, Maxi! 
+
+### Meetings
+
+Our initial client contact was Maxi, who is friends with the business owner's Son (One of the managers at the stores). His initial dealings were with the son, and eventually moved on to Ed, the owner. Meetings were held with Ed about initial ideas and planning, and again when we'd thought about our options and what to present to him- where we discussed the plans in more detail. 
+
+We queried him about branding and he wasn't overly across the concept. He mentioned Red for a colour and the Chicken Logo on his stores - Though when we googled these logos we saw them to be inconsistent. Winter made a new, custon `Chicken-In` Logo, and Ed was reportedly very impressed.
 
 <br>
 <br>
@@ -595,6 +614,18 @@ For individual features, Our plan is to use separate `feature` branches cloned o
 #### Step 10: Push your change to develop
 
 > `git push origin develop`
+
+<br>
+<br>
+
+### Git Workflow Thus Far
+<a href="assets/images/git-workflow.png" target="_blank"><img src="assets/images/git-workflow.png" width="800"></a>
+
+Git workflow using these methods so far has been good. There are a lot of erroneous 'merge commits', but this is fine- We've been using them to track branches when necessary. At at least one occasion `oheydrew`(Drew) forgot to push up his work, but since he'd done it in a side branch, he just pulled the latest from `origin`, and merged in his previously completed branch. A simple example of how useful branches can be!
+
+<a href="assets/images/github-branches.png" target="_blank"><img src="assets/images/github-branches.png" width="800"></a>
+
+We've been pushing branches to Github, though we can see there will end up being quite a few branches there if we do so. In the future, this may slow to more stable release features. 
 
 <br>
 <br>
