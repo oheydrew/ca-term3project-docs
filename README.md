@@ -405,10 +405,64 @@ We started out wireframes once we had our user stories and general feature set d
 
 <img src="assets/images/wireframes/2018-07-10_Employer_Pages_wf_3.png" width="800" align="top">
 
-## Design Wireframes
-> TBC 
-
 Link To: [Wireframe on Figma](https://www.figma.com/file/gQQXmtltA663KtTEjNjUGpPT/Wireframe)
+
+## Design Wireframes
+
+
+### Guest Pages
+
+We decided to implement a mobile-first design for our guest and employee login pages as they would be the most frequent users of the Chicken-in Web app. The single page design allows the users to rapidly digest the purpose of the app with a summary of its full functionality in the about section.
+
+<a href="assets/images/guest-loginPage.png" target="_blank"><img src="assets/images/guest-loginPage.png" width="800"></a>
+
+### Employee Login
+
+Iterating on the single page design, Red Rocks employees are redirected to a lightweight rostering app with the immediate ability to add and review past/pending/rejected shifts. We found that this stripped back interface would best serve the needs of the client's team, who found their paper-based system inefficient and time-consuming.
+
+<a href="assets/images/employee-pages.png" target="_blank"><img src="assets/images/employee-pages.png" width="800"></a>
+
+## Manager Login
+
+On successful manager login, the user is redirected to the manager dashboard, where they have access to several core functions of the app.
+
+Managers will be able to view weekly shift reports, approve or reject pending shifts input by employees, manage their teams, stores and configure their business settings.
+
+After our initial meeting with the client, our team decided that we could not integrate mobile-first design for the manager dashboard without sacrificing the ability to display and easily read shift data. As such, the manager dashboard was created with a desktop only view.
+
+### Manager Reports 
+
+On this page, the manager is given an overview of the weekly shifts that have been approved or are pending approval. A stretch goal is to integrate a "print report" function that produces a print ready pdf for physical documentation. An additional consideration is to include data visualisation within this dashboard further support the reporting functionality.
+
+<a href="assets/images/manager-reports.png" target="_blank"><img src="assets/images/manager-reports.png" width="800"></a>
+
+### Manager Approvals
+
+On this page, managers have the ability to view all pending shifts input from employees and approve/reject them. Stretch goals are to include a comment popup when rejecting a shift to give further clarification to an employee as to why the shift has been denied.
+
+<a href="assets/images/manager-approvals.png" target="_blank"><img src="assets/images/manager-approvals.png" width="800"></a>
+
+### Manager Team Management
+
+We decided that a full-scale HR app that stored and protected large amounts of employee data was not necessary for our client scale. Designed for ease of use, we kept the interface lean, with the ability to quickly edit, remove (archive), and add new employees within one view.
+
+<a href="assets/images/manager-teamManagement.png" target="_blank"><img src="assets/images/manager-teamManagement.png" width="800"></a>
+
+Upon submitting, a new employee will be registered to the email input with a default password given. This can be changed at any point by the employee to create a secure login that they alone will know.
+
+<a href="assets/images/manager-teamManagement-newEmp.png" target="_blank"><img src="assets/images/manager-teamManagement-newEmp.png" width="800"></a>
+
+### Manager Settings
+
+Rather than hard code the values for overtime and double time, we decided to give our client the option to change the multiplier according to the current award rate in hospitality, as this is prone to change.
+
+<a href="assets/images/manager-settings.png" target="_blank"><img src="assets/images/manager-settings.png" width="800"></a>
+
+
+
+Link To: [Design Wireframe on Figma] (https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design)
+
+
 
 <br>
 <br>
