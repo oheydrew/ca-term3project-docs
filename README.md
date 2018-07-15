@@ -333,7 +333,7 @@ Link To: [User Stories Trello Board](https://trello.com/b/1kl5tgnk)
 
 # 15. Provide Wireframes for your App.
 
-Wireframes were a 2-stage process for our group. A quick, dirty first pass, and then a more design-focussed second pass, later on. 
+Wireframes were a 2-stage process for our group. A quick, dirty first pass, and then a more design-focussed second pass, later on. x
 
 ## Initial Wireframes
 We started out wireframes once we had our user stories and general feature set down. We worked on these together, quite quickly, so as to give us a foundation as to what Architecture we would be looking at using. From there, we moved on to more specific design wireframes.
@@ -494,6 +494,12 @@ We have extended goals to integrate Continuous Integration using TravisCI - This
 
 # 20. Discuss and analyse requirements related to information system security.
 Managers will need to be confident that only they can access their account, manage employees and approve employee timesheets. Employees will need to be confident that only they can submit their own time sheets. We will facilitate this by implementing server-side authorization and authenticantion.
+
+Tokens will be bundled up inside Cookies (Not LocalStorage), and inside the cookie, along with the valid email address, will be a flag: `userType`. This will be either `employee` or `manager`, and will allow our cookieparser to get this user type and check the email credentials against the correct user database. This is still secure, as the cookie/token will need to be valid for this checking to occur, and cookies will only be handed out in the event of a successful login. 
+
+If a manager wishes to also fill out their own timesheets, they will be required to log out as a manager, in this system. This is regrettable, but given the scope of what we can achieve, we decided this a fair compromise. 
+
+As always, with cookies, if a malicious script or other method were to steal the cookie from somebody's browser, they would be able to get access to the site. But this is the case with many cookie based login systems, and can't be helped. We plan to minimize this by implementing short-expiry times on cookies (especially on the manager end). This will require more logins, but is worth it for the additional security benefits.
 
 # 21. Discuss methods you will use to protect information and data.
 We will implement a login endpoint that checks the incoming login details against details stored in the database. The server will then create a JWT and provide it to that user via a private cookie.  Additionally, we will protect all our api endpoints with middleware that will check requests for a JWT. If a valid JWT is not provided, the server will return a status of 401. If a valid JWT is provided, the server will handle the request appropriately. We will also implement a logout endpoint that will remove the JWT from the user's cookie. Additionally, we will avoid storing authorization data in local storage, and we will also hash incoming passwords before storing them in the database.
