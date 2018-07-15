@@ -1,14 +1,36 @@
 # 1. Who is your client?
 Our client, Edwin Huang, owns and operates a number of charcoal chicken shops around Victoria, under the brand name “Red Rocks Charcoal Chicken”. He splits his time between working in the stores as a manager, and doing all the administrative/entrepreneurial work as the owner.
 
+Red Rocks Charcoal Chicken is a small group of chicken shops all owned by the same owner. They aren't a franchise, more a small group owned by the same group. A lot of their regular employees are students, and as they aren't a very technologically invested company, they are still doing their time-sheets and overtime calculations manually. 
+
+Red Rocks Charcoal Chicken have little to no branding (Besides the colours Red and White and various "chicken" mascot logos) to speak of, and almost no internet presence, so we did not have to worry about linking into an existing system. This was a challenge but also provided us with an opportunity to work on branding and style.
+
 # 2. What is your client’s need (i.e. challenge) that you will be addressing in your project?
 One of Edwin’s biggest challenges is keeping track of employee hours worked, calculating overtime and calculating how much he owes in wages to each employee. Currently, his employees record how many hours they’ve worked on a paper form, and he manually updates his excel spreadsheet at the end of the week. It’s time consuming work and his employees often make mistakes which means he has to manually follow up with those employees to clarify the situation.
+
+We saw a lot of potential for being able to help him with his business needs- He suggested we could develop him a front-facing website that his clients could use to look up their locations and menus, but we felt that it wouldn't suit the scope of our project. In the end due to time and scope constraints, we decided with Edwin to work on a small app to take track of weekly hours worked by his staff, and calculate the number of overtime hours. 
 
 # 3. Describe the client’s current setup and data.
 Red Rocks Charcoal Chicken does not currently implement a digital solution to this problem. They are currently using an excel spreadsheet to manage employee data and employee expenses. The managers of each store must manually update the spreadsheet at the end of every week- This is time consuming and could better be handled through the use of an app and database solution.
 
 # 4. Describe the project will you be conducting and how your App will address the client’s needs.
-We will develop an online app that will enable Ed’s employees to easily enter in the amount of hours they’ve worked. The app will automatically calculate the standard and overtime hours based on the information, and display this information on a dashboard that Ed can view. Ed can add/remove employees from the system and review the submissions before approving them. The dashboard will also include an overview of past wages paid, which he filters by various fields (dates, locations, employee, etc).
+We will develop an online app that will enable Edwin’s employees to easily enter in the amount of hours they’ve worked. The app will essentially have two parts: **Employee** and **Manager**
+
+In the **Employee** section, the app will allow employees to log in, enter their shifts, and the app will automatically calculate the standard and overtime hours based on the information, and send this information back to our mongodb database for later retrieval by the **Manager** side of the app. The Employee will also be able to see the status of their entered shifts, from *pending*, to *approved* and *rejected*. 
+
+This will have 2 main views (pages):
+- Add Shift
+- Employee Settings (Update password, etc)
+
+In the **Manager** section, Ed or his managers, can add/remove employees from the system and review the submissions before *approving* them. The dashboard will also include an overview of past wages paid, which he filters by various fields (dates, locations, employee, etc).
+
+This will have 4 main views (pages):
+- Review/Approval
+- Reporting / Filtering past shifts
+- Add / Change / Remove Employees
+- Business Settings (ie overtime rates, store locations etc)
+
+If we have time, we would like to implement Data Visualization, as well.
 
 This app will streamline the process of calculating wages, reduce the number of errors and remove the need to manually update an excel spreadsheet.
 
