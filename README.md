@@ -601,6 +601,18 @@ For individual features, Our plan is to use separate `feature` branches cloned o
 <br>
 <br>
 
+### Git Workflow Thus Far
+<a href="assets/images/git-workflow.png" target="_blank"><img src="assets/images/git-workflow.png" width="800"></a>
+
+Git workflow using these methods so far has been good. There are a lot of erroneous 'merge commits', but this is fine- We've been using them to track branches when necessary. At at least one occasion `oheydrew`(Drew) forgot to push up his work, but since he'd done it in a side branch, he just pulled the latest from `origin`, and merged in his previously completed branch. A simple example of how useful branches can be!
+
+<a href="assets/images/github-branches.png" target="_blank"><img src="assets/images/github-branches.png" width="800"></a>
+
+We've been pushing branches to Github, though we can see there will end up being quite a few branches there if we do so. In the future, this may slow to more stable release features. 
+
+<br>
+<br>
+
 # 19. Provide an overview and description of your Testing process.
 
 We plan to implement two types of tests: 
