@@ -414,6 +414,8 @@ We started out wireframes once we had our user stories and general feature set d
 
 ### Link to **<a href="https://www.figma.com/file/E6dEYafb0SWYjyU57uw4HRga/Chicken-in-Design">Design Wireframes on Figma</a>**
 
+(I think it's worth noting here that whilst we all contributed to how we wanted this app to look and feel at a higher level, a lot of the credit for the main design implementation and styling choices credit to <a href="https://github.com/mcwinter07/little-bow-peep">Winter</a>, and his incredible eye. We worked on this as a team, provided feedback and guidance, but he's really gone above and beyond in turning these ideas into a beautiful design. Thanks, Winter! 👍)
+
 ### **Guest Pages**
 
 We decided to implement a mobile-first design for our guest and employee login pages as they would be the most frequent users of the Chicken-in Web app. The single page design allows the users to rapidly digest the purpose of the app with a summary of its full functionality in the about section.
