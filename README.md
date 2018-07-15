@@ -6,7 +6,6 @@
 Coder Academy Group Project 2017 by Drew, Maxi, Shun and Winter - **Team Painframe**
 
 <br>
-<br>
 
 ----
 <br>
@@ -17,6 +16,9 @@ Our client, Edwin Huang, owns and operates a number of charcoal chicken shops ar
 Red Rocks Charcoal Chicken is a small group of chicken shops all owned by the same owner. They aren't a franchise, more a small group owned by the same group. A lot of their regular employees are students, and as they aren't a very technologically invested company, they are still doing their time-sheets and overtime calculations manually. 
 
 Red Rocks Charcoal Chicken have little to no branding (Besides the colours Red and White and various "chicken" mascot logos) to speak of, and almost no internet presence, so we did not have to worry about linking into an existing system. This was a challenge but also provided us with an opportunity to work on branding and style.
+
+<br>
+<br>
 
 # 2. What is your client’s need (i.e. challenge) that you will be addressing in your project?
 One of Edwin’s biggest challenges is keeping track of employee hours worked, calculating overtime and calculating how much he owes in wages to each employee. Currently, his employees record how many hours they’ve worked on a paper form, and he manually updates his excel spreadsheet at the end of the week. It’s time consuming work and his employees often make mistakes which means he has to manually follow up with those employees to clarify the situation.
@@ -31,10 +33,16 @@ We had the thought of making this app a "blank canvas" for inputting any other b
 
 As far as branding and naming, we had the idea of calling the app "Chicken-In" as a reference to "Checking In" to your shift. Edwin found this very funny, and agreed, as it is an internal, employee-facing app.
 
+<br>
+<br>
+
 # 3. Describe the client’s current setup and data.
 Red Rocks Charcoal Chicken does not currently implement a digital solution to this problem. They are currently using an excel spreadsheet to manage employee data and employee expenses. The managers of each store must manually update the spreadsheet at the end of every week- This is time consuming and could better be handled through the use of an app and database solution.
 
 Ideally, it would be nice to be able to work with the client's current paper data system, but this would require scanning in documents and we believe this process would only serve to frustrate, not help the situation. Getting everybody on board with an app-based system and doing away with paper would be the mose efficient solution.
+
+<br>
+<br>
 
 # 4. Describe the project will you be conducting and how your App will address the client’s needs.
 In keeping with the previous comments about doing away with paper, we will develop an online app that will enable Edwin’s employees to easily enter in the amount of hours they’ve worked, and allow the managers to log in, and administrate the process. The app will essentially have two parts: **Employee** and **Manager**
@@ -58,6 +66,9 @@ This will have 4 main views (pages):
 If we have time, we would like to implement Data Visualization, as well.
 
 This app will streamline the process of calculating wages, reduce the number of errors and remove the need to manually update an excel spreadsheet.
+
+<br>
+<br>
 
 # 5. Identify and describe the software (including databases) to be used in your App.
 
@@ -83,6 +94,9 @@ We will use DigitalOcean to host our App. This is a cloud provider much like AWS
 
 To begin with, we plan to employ the initial production 'semi manually', by remote-accessing the server with SSH. If time permits, we plan to implement containerization using Docker, and a CI tool such as TravisCI to help automate the production process. We are sceptical that we will have time for this, however. 
 
+<br>
+<br>
+
 # 6. Identify and describe the network setup you will use in your development.
 
 Our app will not need to rely on any external network infrastructure. The system will be 'cloud based', that is, accessible through the internet for both employees and managers. This works best, especially for the employees, who will be able to access it from anywhere at any time.
@@ -91,9 +105,15 @@ Our app will live in a DiginalOcean virtual computer. Users will enter the domai
 
 This will necessitate an understanding of Web and Internet infrastructure, as well as Internet Protocols and Production Environments. Our chosen production environment, digitalocean, will provide us with some new learnings along the way, but we are excited to tackle them.
 
+<br>
+<br>
+
 # 7. Identify and describe the infrastructure (i.e. hardware) that your App will run on.
 
 We will host our App on Digital Ocean. We will buy the cheapest plan, which gives us access to a virtual computer with 1GB of memory, 1vCPU, 25GB of SSD storage, and allow up to 1TB of transfers per month. We are planning to install our database on the server, so will not need to use third-party services like Atlas or mLab.
+
+<br>
+<br>
 
 # 8. Describe the architecture of your App.
 
@@ -211,6 +231,9 @@ We are planning to install a MongoDB database on our DigitalOcean server. Our ba
 
 We decided to install this on our production server at DigitalOcean directly, as opposed to using Atlas or mLab, as this will give us faster, more direct access to our data. Should we need to scale the app, moving to an offsite service such as Atlas would not be too hard- as this is all coded in through `MONGO_URL` and `MONGO_AUTH` environment variables.
 
+<br>
+<br>
+
 # 9. Explain the different high-level components (abstractions) in your App.
 
 Our app is made up of five main components:
@@ -233,6 +256,9 @@ Our app is made up of five main components:
 
 > 5. **MongoDB Database.** Our database will act as the store for all the information we want to save. Thsi includes, user data, shift data and business data.
 
+<br>
+<br>
+
 # 10. Detail any third party services that your App will use.
 
 - **DigitalOcean** for hosting - This is a somewhat similar service to AWS or GCS, except it's a little simpler. Their pricing model is a lot more standardized and their model works on providing a server with SSH access, so there's less "Learning AWS" around the production process. We will need to SSH into this terminal and clone our `master` branch, then install dependencies and run from there.
@@ -244,6 +270,9 @@ Our app is made up of five main components:
 - **Trello** for general project management. We lean *heavily* on this! We've multiple boards for resources and internal info, but it all flows back to our main <a href="https://trello.com/b/DFlgggpu/scrum-board" target="_blank">Scrum</a> board.
 
 - **Git** and **Github** for version control. See below for more detail about our Git workflow.
+
+<br>
+<br>
 
 # 11. Identify the database to be used in your app and provide a justification for your choice.
 We will use <b>MongoDB</b> for our database. The benefits are:
@@ -257,6 +286,9 @@ We will use <b>MongoDB</b> for our database. The benefits are:
 
 - Used by big companies (e.g. Expedia, Bosch, Otto, eBay, Gap, Forbes, Foursquare, Adobe, Intuit, Metlife, BuzzFeed, Crittercism, CitiGroup, the City of Chicago, others.)
 
+<br>
+<br>
+
 # 12. Discuss the database relations to be implemented.
 We will implement three relationships in our database:
 
@@ -264,6 +296,9 @@ We will implement three relationships in our database:
 
 - In every `shift` document, the `employee` property is a reference to an `employee` document. This is because every `shift` belongs to an `employee`.
 - In every `business` document, the `manager` property is a reference to a `manager` document. This is because every business belongs to a `manager`.
+
+<br>
+<br>
 
 # 13. Provide your database schema design.
 
@@ -318,6 +353,9 @@ We have 4 mongodb Schemas for use in our app: `Employee`, `Manager`, `Shift`, an
 
 `manager` references the ID of `manager`, to keep track of the managers tied to this business
 
+<br>
+<br>
+
 # 14. Provide User stories for your App.
 ### User Profiles
 We focussed on providing a number of basic user profiles based on the types of users we are likely to encounter. We were informed there are a number of students and graduates who are employed in the shops, and the managers vary in age, the youngest being 24. From this, we created some basic profiles, and decided to focus on how the app may be used rather than fleshing out too many details about the characters.
@@ -344,6 +382,9 @@ This was where we realised the bulk of our app's features would take place. The 
 
 Link To: [User Stories Trello Board](https://trello.com/b/1kl5tgnk)
 
+<br>
+<br>
+
 # 15. Provide Wireframes for your App.
 
 Wireframes were a 2-stage process for our group. A quick, dirty first pass, and then a more design-focussed second pass, later on. x
@@ -368,6 +409,9 @@ We started out wireframes once we had our user stories and general feature set d
 > TBC 
 
 Link To: [Wireframe on Figma](https://www.figma.com/file/gQQXmtltA663KtTEjNjUGpPT/Wireframe)
+
+<br>
+<br>
 
 # 16. Describe the way Tasks are being allocated and tracked in your project.
 
@@ -410,6 +454,9 @@ Link To: [Main Scrum Trello Board](https://trello.com/b/DFlgggpu)
 
 The board is designed to be self-documenting, and make sense, so as not to be too confusing. We decided against using many, smaller boards, in favour of one large board, where we can follow a card from original idea through to completion.
 
+<br>
+<br>
+
 # 17. Discuss how Agile methodology is being implemented in your App.
 
 From the outset of this project, we decided to take a lot from the Agile methodology. Given that each of us has our own unique strengths, we have embraced the idea that we will be far more powerful as a team, and the Agile (Specifically, Scrum) practices offer a lot in the way of organization. 
@@ -431,6 +478,9 @@ As far as Timeline planning goes, we have begun to track our progress using Maxi
 <a href="assets/images/timeline.png" target="_blank"><img src="assets/images/timeline.png" width="800"></a>
 
 This was actually really useful! It was really impressive and empowering to see how we could actually use a tool that was previously made by one of our own, to further our project needs. Thanks, Maxi! 
+
+<br>
+<br>
 
 # 18. Provide an overview and description of your Source control process.
 
@@ -490,6 +540,9 @@ For individual features, Our plan is to use separate `feature` branches cloned o
 
 > `git push origin develop`
 
+<br>
+<br>
+
 # 19. Provide an overview and description of your Testing process.
 
 We plan to implement two types of tests: 
@@ -505,6 +558,9 @@ Integration Testing will mostly happen on the backend and will be used to test d
 
 We have extended goals to integrate Continuous Integration using TravisCI - This would enable us to be able to automatically run tests, before deploying to our `master` branch. This may or may not get implemented, depending on how complete the project gets.
 
+<br>
+<br>
+
 # 20. Discuss and analyse requirements related to information system security.
 Managers will need to be confident that only they can access their account, manage employees and approve employee timesheets. Employees will need to be confident that only they can submit their own time sheets. We will facilitate this by implementing server-side authorization and authenticantion.
 
@@ -514,10 +570,16 @@ If a manager wishes to also fill out their own timesheets, they will be required
 
 As always, with cookies, if a malicious script or other method were to steal the cookie from somebody's browser, they would be able to get access to the site. But this is the case with many cookie based login systems, and can't be helped. We plan to minimize this by implementing short-expiry times on cookies (especially on the manager end). This will require more logins, but is worth it for the additional security benefits.
 
+<br>
+<br>
+
 # 21. Discuss methods you will use to protect information and data.
 One of the key ways we plan to secure information, is not to store irrelevant data at all. This is a system which tracks hours and overtime, not employee information. As such, only the first and last name of the employee is stored, and minimal business information. Nevertheless, the hours and pay rates of employees is stored with identifiable information, as such, we need to take security seriously.
 
 We will implement a login endpoint that checks the incoming login details against details stored in the database. The server will then create a JWT and provide it to that user via a private cookie.  Additionally, we will protect all our api endpoints with middleware that will check requests for a JWT. If a valid JWT is not provided, the server will return a status of 401. If a valid JWT is provided, the server will handle the request appropriately. We will also implement a logout endpoint that will remove the JWT from the user's cookie. Additionally, we will avoid storing authorization data in local storage, and we will also hash incoming passwords before storing them in the database.
+
+<br>
+<br>
 
 # 22. Research what your legal obligations are in relation to handling user data.
 Under Australian Privacy laws, we are required to safeguard any user information that we collect and store. We have the responsibility to protect users' personal information from theft, misuse, interference, loss, unauthorized access, modification and disclosure. We must also take reasonable steps to destroy or de-identify personal information when it is no longer needed. Personal information can include name, signature, address, email, telephone number, date of birth, medical records, bank account details, etc.
